@@ -7,41 +7,72 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 </head>
-<body class="container py-5">
-    <div class="card p-4 shadow-lg">
-        <h2 class="text-center mb-4">Orders List</h2>
-        <table id="ordersTable" class="table table-striped w-100">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Order ID</th>
-                    <th>Email</th>
-                    <th>Amazon Name</th>
-                    <th>Shipping Address</th>
-                    <th>Image</th>
-                    <th>Created At</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($happy as $key => $order)
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Orders List</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Profile
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            {{-- <li><a class="dropdown-item" href="{{route('profile.edit')}}">Profile</a></li> --}}
+                            {{-- <li><hr class="dropdown-divider"></li> --}}
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="card p-4 shadow-lg">
+            <h2 class="text-center mb-4">Orders List</h2>
+            <table id="ordersTable" class="table table-striped w-100">
+                <thead>
                     <tr>
-                        <td>{{ $key + 1 }}</td>
-                        <td>{{ $order->order_id }}</td>
-                        <td>{{ $order->email }}</td>
-                        <td>{{ $order->name }}</td>
-                        <td>{{ $order->shipping_address }}</td>
-                        <td>
-                            @if ($order->image_path)
-                                <img src="{{ asset('storage/app/private/public/' . $order->image_path) }}" width="50">
-                            @else
-                                No Image
-                            @endif
-                        </td>
-                        <td>{{ $order->created_at->format('Y-m-d H:i') }}</td>
+                        <th>Id</th>
+                        <th>Order ID</th>
+                        <th>Email</th>
+                        <th>Amazon Name</th>
+                        <th>Shipping Address</th>
+                        <th>Image</th>
+                        <th>Created At</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach ($happy as $key => $order)
+                        <tr>
+                            <td>{{ $key + 1 }}</td>
+                            <td>{{ $order->order_id }}</td>
+                            <td>{{ $order->email }}</td>
+                            <td>{{ $order->name }}</td>
+                            <td>{{ $order->shipping_address }}</td>
+                            <td>
+                                @if ($order->image_path)
+                                    <img src="{{ asset('storage/app/private/public/' . $order->image_path) }}" width="50">
+                                @else
+                                    No Image
+                                @endif
+                            </td>
+                            <td>{{ $order->created_at->format('Y-m-d H:i') }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
