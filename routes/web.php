@@ -24,9 +24,9 @@ Route::get('/', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/dashboard', function () {
-    $orders = Happy::latest()->get(); // Fetch all orders (latest first)
+    $happy = Happy::latest()->get(); // Fetch all orders (latest first)
     // dd($orders);
-    return view('dashboard', compact('orders'));
+    return view('dashboard', compact('happy'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
