@@ -82,15 +82,15 @@
             </div>
 
             <!-- Remember Me -->
-            <div class="mb-3 form-check">
+            {{-- <div class="mb-3 form-check">
                 <input type="checkbox" id="remember_me" name="remember" class="form-check-input">
                 <label for="remember_me" class="form-check-label">Remember Me</label>
-            </div>
+            </div> --}}
 
             <div class="d-flex justify-content-between align-items-center">
-                @if (Route::has('password.request'))
+                {{-- @if (Route::has('password.request'))
                     <a href="{{ route('password.request') }}" class="text-decoration-none">Forgot your password?</a>
-                @endif
+                @endif --}}
                 <button type="submit" class="btn btn-primary">Log in</button>
             </div>
         </form>
