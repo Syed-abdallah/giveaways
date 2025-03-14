@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UnhappyController;
 use App\Http\Controllers\HappyController;
+use App\Models\Happy;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +24,7 @@ Route::get('/', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/dashboard', function () {
-    $orders = Order::latest()->get(); // Fetch all orders (latest first)
+    $orders = Happy::latest()->get(); // Fetch all orders (latest first)
     // dd($orders);
     return view('dashboard', compact('orders'));
 })->middleware(['auth', 'verified'])->name('dashboard');

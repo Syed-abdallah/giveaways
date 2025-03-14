@@ -21,7 +21,7 @@
                             <th>Created At</th>
                         </tr>
                     </thead>
-                    @foreach ($orders as $key => $order)
+                    @foreach ($happy as $key => $order)
                         <tr>
                             <td>{{ $key + 1 }}</td> <!-- Adding 1 to start from 1 instead of 0 -->
                             <td>{{ $order->order_id }}</td>
