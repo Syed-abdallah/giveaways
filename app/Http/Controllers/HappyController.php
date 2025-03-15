@@ -23,7 +23,7 @@ class HappyController extends Controller
         $order = new Happy();
         $order->order_id = $request->input('order_id');
         $order->email = $request->input('email');
-        $order->options = $request->input('options');
+        $order->options = $request->input('opHappy');
         $order->name = $request->input('amazon_name');
         $order->shipping_address = $request->input('shippingAddress');
 
