@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('order_id');
             $table->string('email');
             $table->string('name');
+            $table->string('options');
             $table->text('shipping_address');
             $table->string('image_path');
             $table->timestamps();
