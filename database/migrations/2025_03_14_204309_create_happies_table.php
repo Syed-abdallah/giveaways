@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('happies', function (Blueprint $table) {
             $table->id();
+            $table->string('order_id');
+            $table->string('email');
+            $table->string('name');
+            $table->text('shipping_address');
+            $table->string('image_path');
             $table->timestamps();
         });
     }

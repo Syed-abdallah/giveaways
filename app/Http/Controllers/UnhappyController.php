@@ -24,6 +24,7 @@ class UnhappyController extends Controller
         
         $order = new Unhappy();
         $order->amazon_id = $request->input('amazon_id');
+        $order->noid = $request->input('noid');
         $order->email = $request->input('email');
         $order->option = $request->input('option');
         $order->option2 = $request->input('option2');

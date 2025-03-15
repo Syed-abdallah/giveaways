@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('unhappies', function (Blueprint $table) {
             $table->id();
+            $table->string('amazon_id')->nullable();
+            $table->string('option');
+            $table->string('option2');
+            $table->string('noid', 100);
+            $table->string('email');
+            $table->string('name');
+            $table->text('shipping_address')->nullable();
+            $table->text('reason')->nullable();
             $table->timestamps();
         });
     }
