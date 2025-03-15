@@ -295,6 +295,7 @@
                                         <label for="inputorderID02" class="col-sm-3 col-form-label text-right">Amazon Order ID</label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control order" id="inputorderID02" name="amazon_id" required>
+                                            <small id="orderIDError" class="text-danger d-none">Order ID is required.</small>
                                         </div>
                                     </div>
                                 
@@ -311,7 +312,7 @@
                                     <div class="form-group row">
                                         <label for="inputAddress01" class="col-sm-3 col-form-label text-right">Shipping Address</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputAddress01" placeholder="Shipping Address to receive the item" name="shipping_address" required>
+                                            <input type="text" class="form-control" id="inputAddress01" name="shipping_address" required>
                                         </div>
                                     </div>
                                 
@@ -341,12 +342,26 @@
                                 <script>
                                     document.getElementById("noidCheckbox").addEventListener("change", function() {
                                         let orderIDField = document.getElementById("inputorderID02");
+                                        let orderIDError = document.getElementById("orderIDError");
                                 
                                         if (this.checked) {
                                             orderIDField.removeAttribute("required");
-                                            orderIDField.value = ""; // Optional: Clear the field when unchecked
+                                            orderIDField.classList.remove("is-invalid");
+                                            orderIDError.classList.add("d-none"); // Hide error message
                                         } else {
                                             orderIDField.setAttribute("required", "required");
+                                        }
+                                    });
+                                
+                                    document.getElementById("unhappyForm").addEventListener("submit", function(event) {
+                                        let orderIDField = document.getElementById("inputorderID02");
+                                        let orderIDError = document.getElementById("orderIDError");
+                                        let checkbox = document.getElementById("noidCheckbox");
+                                
+                                        if (!checkbox.checked && orderIDField.value.trim() === "") {
+                                            event.preventDefault(); // Stop form submission
+                                            orderIDField.classList.add("is-invalid");
+                                            orderIDError.classList.remove("d-none"); // Show error message
                                         }
                                     });
                                 </script>

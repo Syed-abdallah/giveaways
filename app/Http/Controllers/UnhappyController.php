@@ -11,6 +11,7 @@ class UnhappyController extends Controller
 {
     public function store(Request $request)
     {
+        dd('yes');
         $request->validate([
             'option' => 'required|string',
             'option2' => 'required|string',
