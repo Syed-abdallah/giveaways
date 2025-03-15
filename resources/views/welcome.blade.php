@@ -658,7 +658,23 @@
                         </div>
 
                         <div class="w-100 mb-3 text-center">Which bonus would you like to choose?</div>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function () {
+                                const form = document.getElementById("optionFormHappy");
+                                form.addEventListener("submit", function (event) {
+                                    const selectedOption = document.querySelector('input[name="opHappy"]:checked');
+                                    if (!selectedOption) {
+                                        event.preventDefault();
+                                        alert("Please select an option before proceeding!");
+                                    }
+                                });
+                            });
+                        </script>
 
+
+
+                        <form action="{{ route('save.form') }}" method="POST" enctype="multipart/form-data" id="optionFormHappy">
+                            @csrf
                         <div class="form-gift mb-3 row">
 
 
@@ -672,7 +688,7 @@
 
                                     <p>Same Item for Free</p>
 
-                                    <input type="radio" name="lihe" value="Same Item for Free">
+                                    <input type="radio" name="opHappy" value="Same Item for Free">
 
                                 </label>
 
@@ -689,7 +705,7 @@
 
                                     <p>15 Gift Card</p>
 
-                                    <input type="radio" name="lihe" value="15 Gift Card">
+                                    <input type="radio" name="opHappy" value="15 Gift Card">
 
                                 </label>
 
@@ -724,17 +740,16 @@
                                 </p>
                                 <br>
 
-                                <form action="{{ route('save.form') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
+                             
                                     <div class="form-group row" style="justify-content: center;align-items: center;">
 
                                         <div class="uploader">
 
                                             <input type="text" id="filename" readonly="">
 
-                                            <img src="image/dp.png" alt="" style="width:45px;" required>
+                                            <img src="image/dp.png" alt="" style="width:45px;" >
 
-                                            <input type="file" name="pic" size="30" id="file">
+                                            <input type="file" name="pic" size="30" id="file" required>
 
                                         </div>
                                         <div class="file_img"><a
@@ -804,15 +819,15 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary float-right">Submit</button>
 
-                                </form>
-
+                                    
+                            
 
                                 <div class="text-center tshi"
                                     style="clear: both; color: rgb(244, 67, 54); display: none;">Please input email
                                     address, name.review screenshot</div>
 
                             </div>
-
+                        
                             <div class="form-customerinfo card a" style="display: none;overflow.hidden;">
 
                                 <p class="w-100 mb-4">
@@ -908,7 +923,7 @@
 
 
                         </div>
-
+                    </form>
                         <div class="clearfix"></div>
 
                         <div class="row progress-control mt-3 mt-sm-5">
