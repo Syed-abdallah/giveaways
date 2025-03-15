@@ -60,16 +60,19 @@
 
                 <p><strong>🆔 Order ID:</strong> {{ $order->amazon_id }}</p>
             }
+            @endif
             <p><strong>👤 Name:</strong> {{ $order->name }}</p>
             <p><strong>📧 Email:</strong> {{ $order->email }}</p>
-            if($order->shipping_address){
+            @if($order->shipping_address){
 
             <p><strong>📍 Shipping Address:</strong> {{ $order->shipping_address }}</p>
             }
+            @endif
             @if($order->option){
 
             <p><strong>📍 Shipping Address:</strong> {{ $order->option }}</p>
         }
+        @endif
     </div>
     
   @if($order->review){
@@ -77,12 +80,14 @@
         <p><strong>💬 Review :</strong> {{ $order->review }}</p>
 
   }
+@endif
+        @if($order->image_path){
 
-        @if($order->image_path)
             <div class="image-container">
                 <p><strong>📸 Uploaded Image:</strong></p>
                 <img src="{{ asset('storage/orders/' . $order->image_path) }}" width="200">
             </div>
+        }
         @endif
     </div>
 </body>
