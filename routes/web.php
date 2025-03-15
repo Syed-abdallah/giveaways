@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UnhappyController;
 use App\Http\Controllers\HappyController;
 use App\Models\Happy;
+use App\Models\Unhappy;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +29,11 @@ Route::get('/dashboard', function () {
     // dd($orders);
     return view('dashboard', compact('happy'));
 })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/unhappy', function () {
+    $unhappy = Unhappy::latest()->get(); // Fetch all orders (latest first)
+    // dd($orders);
+    return view('unhappy', compact('unhappy'));
+})->middleware(['auth', 'verified'])->name('unhappy');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

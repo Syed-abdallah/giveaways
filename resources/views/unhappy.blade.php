@@ -50,12 +50,12 @@
                         <th>Amazon Name</th>
                         <th>Option</th>
                         <th>Shipping Address</th>
-                        <th>Image</th>
+                    
                         {{-- <th>Created At</th> --}}
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($happy as $key => $order)
+                    @foreach ($unhappy as $key => $order)
                         <tr>
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $order->order_id }}</td>
@@ -63,13 +63,7 @@
                             <td>{{ $order->name }}</td>
                             <td>{{ $order->options }}</td>
                             <td>{{ $order->shipping_address }}</td>
-                            <td>
-                                @if ($order->image_path)
-                                    <img src="{{ asset('storage/app/private/public/' . $order->image_path) }}" width="50">
-                                @else
-                                    No Image
-                                @endif
-                            </td>
+                      
                             {{-- <td>{{ $order->created_at->format('Y-m-d H:i') }}</td> --}}
                         </tr>
                     @endforeach
