@@ -27,20 +27,28 @@ class HappyController extends Controller
         $order->name = $request->input('amazon_name');
         $order->shipping_address = $request->input('shippingAddress');
 
-    // Handle Image Upload (Save in Storage)
+    // // Handle Image Upload (Save in Storage)
+    // if ($request->hasFile('pic')) {
+    //     $image = $request->file('pic');
+    //     $imageName = date('YmdHis') . '.' . $image->getClientOriginalExtension();
+    
+    //     // Save image in storage/app/public/orders/
+    //     $image->storeAs('public/orders', $imageName);
+    
+    //     // Save only the image path for easy access
+    //     $order->image_path = 'orders/' . $imageName;
+    // } else {
+    //     $order->image_path = null;
+    // }
     if ($request->hasFile('pic')) {
         $image = $request->file('pic');
         $imageName = date('YmdHis') . '.' . $image->getClientOriginalExtension();
-    
-        // Save image in storage/app/public/orders/
-        $image->storeAs('public/orders', $imageName);
-    
-        // Save only the image path for easy access
-        $order->image_path = 'orders/' . $imageName;
-    } else {
-        $order->image_path = null;
-    }
-    
+        // $imageResized = Image::make($image)->height(650);
+        $image->move(public_path('backend/images/daysee'), $imageName);
+        $order->image_path = $imageName;
+     } else {
+            $order->image_path = null;
+        }
     
 
     // Save order to database
