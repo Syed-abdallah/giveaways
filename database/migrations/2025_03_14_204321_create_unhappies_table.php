@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('amazon_id')->nullable();
             $table->string('option');
             $table->string('option2');
-            $table->string('noid', 100);
+            $table->string('noid', 100)->nullable();
             $table->string('email');
             $table->string('name');
             $table->text('shipping_address')->nullable();
