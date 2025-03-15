@@ -945,24 +945,24 @@
                         <script>
                             document.addEventListener("DOMContentLoaded", function () {
                                 console.log("✅ Script Loaded!");
-                    
-                                // Select Form
+                        
                                 const form = document.getElementById("optionFormHappy");
-                    
-                                // Check if form exists
+                        
                                 if (!form) {
                                     console.error("❌ ERROR: Form not found!");
                                     return;
                                 }
-                    
+                        
                                 console.log("✅ Form Found!");
-                    
-                                // Add Event Listener on Form Submit
+                        
+                                // Ensure form is visible
+                                form.style.display = "block"; // Prevent accidental hiding
+                        
                                 form.addEventListener("submit", function (event) {
                                     console.log("📝 Form submission attempted...");
-                    
+                        
                                     const selectedOption = document.querySelector('input[name="opHappy"]:checked');
-                    
+                        
                                     if (!selectedOption) {
                                         event.preventDefault();
                                         alert("Please select an option before proceeding!");
@@ -971,8 +971,17 @@
                                         console.log("✅ Selected Option:", selectedOption.value);
                                     }
                                 });
+                        
+                                // Debug radio button change
+                                document.querySelectorAll('input[name="opHappy"]').forEach(radio => {
+                                    radio.addEventListener("change", function () {
+                                        console.log("🔄 Option changed to:", this.value);
+                                        form.style.display = "block"; // Ensure form is not hidden
+                                    });
+                                });
                             });
                         </script>
+                        
                         <div class="clearfix"></div>
 
                         <div class="row progress-control mt-3 mt-sm-5">
