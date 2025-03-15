@@ -198,7 +198,7 @@
                                     <div class="form-group row">
                                         <div class="col-sm-3 col-1"></div>
                                         <label class="col-sm-9 col-11 mb-0" for="noid">
-                                            <input class="form-check-input ml-2 noid-checkbox" type="checkbox" id="noid01"
+                                            <input class="form-check-input ml-2" type="checkbox" id="noid01"
                                                 value="" >
                                             <span class="ml-2">I don’t know my order ID</span>
                                         </label>
@@ -311,7 +311,7 @@
                                     <div class="form-group row">
                                         <div class="col-sm-3 col-1"></div>
                                         <label class="col-sm-9 col-11 mb-0" for="noid">
-                                            <input class="form-check-input ml-2 noid-checkbox" type="checkbox" id="noid">
+                                            <input class="form-check-input ml-2 " type="checkbox" id="noid">
                                             <span class="ml-2">I don’t know my order ID</span>
                                         </label>
                                     </div>
@@ -881,21 +881,18 @@
         }
     </style>
 
-
 <script>
     document.querySelectorAll(".noid-checkbox").forEach((checkbox, index) => {
         checkbox.addEventListener("change", function() {
             let orderIDField = document.querySelectorAll(".order")[index];
 
             if (this.checked) {
-                orderIDField.value = "";  // Clear input
-                orderIDField.removeAttribute("required"); // Remove required attribute
-                orderIDField.disabled = true; // Disable input
+                orderIDField.removeAttribute("required");
             } else {
-                orderIDField.required = true; // Make it required again
-                orderIDField.disabled = false; // Enable input
+                orderIDField.setAttribute("required", "required");
             }
         });
     });
 </script>
+
 </body>
