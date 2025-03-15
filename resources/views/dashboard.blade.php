@@ -29,8 +29,8 @@
         }
 
         .zoom-container img {
-            max-width: 90vw; /* 90% of viewport width */
-            max-height: 90vh; /* 90% of viewport height */
+            max-width: 120vw; /* 90% of viewport width */
+            max-height: 110vh; /* 90% of viewport height */
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
         }
