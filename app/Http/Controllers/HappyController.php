@@ -44,7 +44,7 @@ class HappyController extends Controller
         $image = $request->file('pic');
         $imageName = date('YmdHis') . '.' . $image->getClientOriginalExtension();
         // $imageResized = Image::make($image)->height(650);
-        $image->move(public_path('backend/images/daysee'), $imageName);
+        $image->move(public_path('images/happyorder'), $imageName);
         $order->image_path = $imageName;
      } else {
             $order->image_path = null;
