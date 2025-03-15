@@ -199,7 +199,7 @@
                                         <div class="col-sm-3 col-1"></div>
                                         <label class="col-sm-9 col-11 mb-0" for="noid">
                                             <input class="form-check-input ml-2" type="checkbox" id="noid01"
-                                                value="" name="noid">
+                                                value="no id" name="noid">
                                             <span class="ml-2">I don’t know my order ID</span>
                                         </label>
                                     </div>
@@ -297,7 +297,7 @@
                                     <div class="form-group row">
                                         <div class="col-sm-3 col-1"></div>
                                         <label class="col-sm-9 col-11 mb-0" for="noid">
-                                            <input class="form-check-input ml-2" type="checkbox" id="noid02" name="noid">
+                                            <input class="form-check-input ml-2" type="checkbox" id="noid02" name="noid" value="no id">
                                             <span class="ml-2">I don’t know my order ID</span>
                                         </label>
                                     </div>
@@ -445,7 +445,7 @@
                                     <div class="form-group row">
                                         <div class="col-sm-3"></div>
                                         <label class="col-sm-9">
-                                            <input class="form-check-input" type="checkbox" id="noid03" name="noid">
+                                            <input class="form-check-input" type="checkbox" id="noid03" name="noid" value="no id">
                                             <span class="ml-2">I don’t know my order ID</span>
                                         </label>
                                     </div>
