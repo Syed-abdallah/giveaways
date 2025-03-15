@@ -25,8 +25,8 @@
         }
     
         .zoom-container img {
-            max-width: 120vw; /* 80% of viewport width */
-            max-height: 120vh; /* 80% of viewport height */
+            max-width: 160vw; /* 80% of viewport width */
+            max-height: 150vh; /* 80% of viewport height */
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
         }
@@ -102,7 +102,7 @@
                             <td>
                                 @if ($order->image_path)
                                     <img src="{{ asset('/image/happyorder/' . $order->image_path) }}" 
-                                         width="100" height="100" 
+                                         width="100" height="70" 
                                          style="cursor: pointer; border-radius: 5px; transition: transform 0.2s;"
                                          onclick="zoomImage(this)">
                                 @else
