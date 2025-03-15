@@ -549,7 +549,7 @@
 
                                             <input type="text" id="filename" readonly="">
 
-                                            <img src="image/dp.png" alt="" style="width:45px;">
+                                            <img src="image/dp.png" alt="" style="width:45px;" required>
 
                                             <input type="file" name="pic" size="30" id="file">
 
