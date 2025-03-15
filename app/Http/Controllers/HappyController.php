@@ -53,9 +53,13 @@ class HappyController extends Controller
 
     // Save order to database
     $order->save();
+    $admin = User::first();
 
-     // Admin Email
-     $adminEmail = 'fix404error@gmail.com';
+    if ($admin) {
+        $adminEmail = $admin->email;
+    } else {
+       
+    }
 
      Mail::send('email.admin-notification', [
          'order' => $order,
