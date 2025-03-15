@@ -199,7 +199,7 @@
                                         <div class="col-sm-3 col-1"></div>
                                         <label class="col-sm-9 col-11 mb-0" for="noid">
                                             <input class="form-check-input ml-2" type="checkbox" id="noid01"
-                                                value="">
+                                                value="" >
                                             <span class="ml-2">I don’t know my order ID</span>
                                         </label>
                                     </div>
@@ -208,7 +208,7 @@
                                             class="col-sm-3 col-form-label  text-right">Name</label>
                                         <div class="col-sm-9">
                                             <input type="name" class="form-control name" id="inputName01"
-                                                placeholder="" value="" name="name">
+                                                placeholder="" value="" name="name" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -216,7 +216,7 @@
                                             class="col-sm-3 col-form-label  text-right">Email</label>
                                         <div class="col-sm-9">
                                             <input type="email" class="form-control email" id="inputEmail01"
-                                                placeholder="" inputmode="email" value="" name="email">
+                                                placeholder="" inputmode="email" value="" name="email" required>
                                         </div>
                                     </div>
                                     <div class="text-center tshi" style="clear: both; color: rgb(244, 67, 54);">Please
@@ -261,7 +261,7 @@
                                         <div class="col-sm-9">
                                             <input type="name" class="form-control" id="inputAddress01"
                                                 placeholder="Shipping Address to receive the item" value=""
-                                                name="shipping_address">
+                                                name="shipping_address" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -374,7 +374,7 @@
                                         <div class="form-group row">
                                             <div class="card otherreasion input-group">
                                                 <textarea aria-label="Please tell us what you want..." placeholder="Please tell us what you want..." id="texr"
-                                                    name="reason"></textarea>
+                                                    name="reason" required></textarea>
                                             </div>
                                         </div>
                                         <div class="text-center tshi" style="clear: both; color: rgb(244, 67, 54);">
