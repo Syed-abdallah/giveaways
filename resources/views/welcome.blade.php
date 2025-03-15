@@ -181,7 +181,7 @@
                             <div class="form-customerinfo card mb-5 list_in" style="display: none;">
                                 <p class="w-100 mb-4">Please tell us your order ID, we will solve your problem quickly!
                                 </p>
-                                <form action="{{ route('save.unhappyform') }}" method="POST">
+                                <form action="{{ route('save.unhappyform') }}" method="POST" id="amazonForm01">
                                     @csrf
                                     <input type="hidden" class="display-selected-reason" name="option" readonly>
                                     <input type="hidden"  value="fullyfunded" name="option2" readonly>
@@ -224,6 +224,50 @@
 
                                     <button type="submit" class="btn btn-primary float-right">Submit</button>
                                 </form>
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function () {
+                                        console.log("✅ Script loaded successfully!");
+                            
+                                        // Select Form and Inputs
+                                        const form = document.getElementById("amazonForm01");
+                                        const orderInput = document.getElementById("inputorderID01");
+                                        const noIdCheckbox = document.getElementById("noid01");
+                            
+                                        if (!form || !orderInput || !noIdCheckbox) {
+                                            console.error("❌ ERROR: One or more elements not found!");
+                                            return;
+                                        }
+                                        console.log("✅ Form and input fields found. Script is running...");
+                            
+                                        // Event Listener for Form Submission
+                                        form.addEventListener("submit", function (event) {
+                                            console.log("📝 Form submission attempted...");
+                            
+                                            console.log("🔎 Order ID Input Value:", orderInput.value);
+                                            console.log("🔍 Checkbox Checked:", noIdCheckbox.checked);
+                            
+                                            if (!orderInput.value.trim() && !noIdCheckbox.checked) {
+                                                event.preventDefault(); // Stop form submission
+                                                alert("Please enter your Amazon Order ID or check the 'I don’t know my order ID' box.");
+                                                console.error("⛔ Error: Order ID is empty and checkbox is unchecked.");
+                                            } else {
+                                                console.log("✅ Form is valid, submitting...");
+                                            }
+                                        });
+                            
+                                        // Checkbox Change Event
+                                        noIdCheckbox.addEventListener("change", function () {
+                                            if (this.checked) {
+                                                orderInput.value = ""; // Clear input field
+                                                orderInput.setAttribute("disabled", "true"); // Disable input
+                                                console.log("🔘 Checkbox checked: Order ID field disabled.");
+                                            } else {
+                                                orderInput.removeAttribute("disabled"); // Enable input
+                                                console.log("🔲 Checkbox unchecked: Order ID field enabled.");
+                                            }
+                                        });
+                                    });
+                                </script>
                             </div>
                             <div class="form-check row list">
                                 <input class="form-check-input" type="radio" id="solutions2" name="unchoose2"
@@ -233,7 +277,9 @@
                             <div class="form-customerinfo card mb-5 list_in" style="display: none;">
                                 <p class="w-100 mb-4">Please tell us your order ID, we will solve your problem quickly!
                                 </p>
-                                <form action="{{ route('save.unhappyform') }}" method="POST" >
+                                <form action="{{ route('save.unhappyform') }}" method="POST" id="amazonForm02">
+                                   
+
                                     @csrf
                                     <input type="hidden" name="option" class="display-selected-reason" readonly>
 
@@ -285,6 +331,51 @@
                                         input shipping address, name, email address.</div>
                                     <button type="submit" class="btn btn-primary float-right">Submit</button>
                                 </form>
+
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function () {
+                                        console.log("✅ Script loaded successfully!");
+                            
+                                        // Select Form and Inputs
+                                        const form = document.getElementById("amazonForm02");
+                                        const orderInput = document.getElementById("inputorderID02");
+                                        const noIdCheckbox = document.getElementById("noid02");
+                            
+                                        if (!form || !orderInput || !noIdCheckbox) {
+                                            console.error("❌ ERROR: One or more elements not found!");
+                                            return;
+                                        }
+                                        console.log("✅ Form and input fields found. Script is running...");
+                            
+                                        // Event Listener for Form Submission
+                                        form.addEventListener("submit", function (event) {
+                                            console.log("📝 Form submission attempted...");
+                            
+                                            console.log("🔎 Order ID Input Value:", orderInput.value);
+                                            console.log("🔍 Checkbox Checked:", noIdCheckbox.checked);
+                            
+                                            if (!orderInput.value.trim() && !noIdCheckbox.checked) {
+                                                event.preventDefault(); // Stop form submission
+                                                alert("Please enter your Amazon Order ID or check the 'I don’t know my order ID' box.");
+                                                console.error("⛔ Error: Order ID is empty and checkbox is unchecked.");
+                                            } else {
+                                                console.log("✅ Form is valid, submitting...");
+                                            }
+                                        });
+                            
+                                        // Checkbox Change Event
+                                        noIdCheckbox.addEventListener("change", function () {
+                                            if (this.checked) {
+                                                orderInput.value = ""; // Clear input field
+                                                orderInput.setAttribute("disabled", "true"); // Disable input
+                                                console.log("🔘 Checkbox checked: Order ID field disabled.");
+                                            } else {
+                                                orderInput.removeAttribute("disabled"); // Enable input
+                                                console.log("🔲 Checkbox unchecked: Order ID field enabled.");
+                                            }
+                                        });
+                                    });
+                                </script>
                             </div>
                             <div class="form-check row list">
                                 <input class="form-check-input" type="radio" id="solutions3" name="unchoose2"
@@ -295,7 +386,7 @@
                             <div class="form-customerinfo card mb-5 list_in" style="display: none;">
                                 <p class="w-100 mb-4">Please tell us your order ID, we will solve your problem quickly!
                                 </p>
-                                <form action="{{ route('save.unhappyform') }}" method="POST" id="amazonForm03">
+                                {{-- <form action="{{ route('save.unhappyform') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="option" class="display-selected-reason" readonly>
                                     <input type="hidden"  value="Get_$10_Amazon_Gift_Card_Without_Refund" name="option2" readonly>
@@ -335,7 +426,99 @@
                                     <div class="text-center tshi" style="clear: both; color: rgb(244, 67, 54);">Please
                                         input name, email address.</div>
                                     <button type="submit" class="btn btn-primary float-right">Submit</button>
+                                </form> --}}
+
+                                <form action="{{ route('save.unhappyform') }}" method="POST" id="amazonForm03">
+                                    @csrf
+                                    <input type="hidden" name="option" class="display-selected-reason" readonly>
+                                    <input type="hidden" value="Get_$10_Amazon_Gift_Card_Without_Refund" name="option2" readonly>
+                        
+                                    <!-- Amazon Order ID -->
+                                    <div class="form-group row mb-3">
+                                        <label for="inputorderID03" class="col-sm-3 col-form-label text-right">Amazon Order ID</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="inputorderID03" name="amazon_id">
+                                        </div>
+                                    </div>
+                        
+                                    <!-- Checkbox -->
+                                    <div class="form-group row">
+                                        <div class="col-sm-3"></div>
+                                        <label class="col-sm-9">
+                                            <input class="form-check-input" type="checkbox" id="noid03">
+                                            <span class="ml-2">I don’t know my order ID</span>
+                                        </label>
+                                    </div>
+                        
+                                    <!-- Name -->
+                                    <div class="form-group row mt-3">
+                                        <label for="inputName03" class="col-sm-3 col-form-label text-right">Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="inputName03" name="name" required>
+                                        </div>
+                                    </div>
+                        
+                                    <!-- Email -->
+                                    <div class="form-group row mt-3">
+                                        <label for="inputEmail03" class="col-sm-3 col-form-label text-right">Email</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control" id="inputEmail03" name="email" required>
+                                        </div>
+                                    </div>
+                        
+                                    {{-- <div class="text-center text-danger mt-3">
+                                        Please input name, email address.
+                                    </div> --}}
+                        
+                                    <!-- Submit Button -->
+                                    <button type="submit" class="btn btn-primary float-right mt-3">Submit</button>
                                 </form>
+                         
+                        
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function () {
+                                    console.log("✅ Script loaded successfully!");
+                        
+                                    // Select Form and Inputs
+                                    const form = document.getElementById("amazonForm03");
+                                    const orderInput = document.getElementById("inputorderID03");
+                                    const noIdCheckbox = document.getElementById("noid03");
+                        
+                                    if (!form || !orderInput || !noIdCheckbox) {
+                                        console.error("❌ ERROR: One or more elements not found!");
+                                        return;
+                                    }
+                                    console.log("✅ Form and input fields found. Script is running...");
+                        
+                                    // Event Listener for Form Submission
+                                    form.addEventListener("submit", function (event) {
+                                        console.log("📝 Form submission attempted...");
+                        
+                                        console.log("🔎 Order ID Input Value:", orderInput.value);
+                                        console.log("🔍 Checkbox Checked:", noIdCheckbox.checked);
+                        
+                                        if (!orderInput.value.trim() && !noIdCheckbox.checked) {
+                                            event.preventDefault(); // Stop form submission
+                                            alert("Please enter your Amazon Order ID or check the 'I don’t know my order ID' box.");
+                                            console.error("⛔ Error: Order ID is empty and checkbox is unchecked.");
+                                        } else {
+                                            console.log("✅ Form is valid, submitting...");
+                                        }
+                                    });
+                        
+                                    // Checkbox Change Event
+                                    noIdCheckbox.addEventListener("change", function () {
+                                        if (this.checked) {
+                                            orderInput.value = ""; // Clear input field
+                                            orderInput.setAttribute("disabled", "true"); // Disable input
+                                            console.log("🔘 Checkbox checked: Order ID field disabled.");
+                                        } else {
+                                            orderInput.removeAttribute("disabled"); // Enable input
+                                            console.log("🔲 Checkbox unchecked: Order ID field enabled.");
+                                        }
+                                    });
+                                });
+                            </script>
                             </div>
                             <div class="form-check row list" id="put">
                                 <input class="form-check-input" type="radio" id="solutions4" name="unchoose2"
@@ -882,29 +1065,5 @@
     </style>
 
 
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const amazonForm = document.getElementById("amazonForm03"); // Specific Form ID
-        const orderInput = document.getElementById("inputorderID03");
-        const noIdCheckbox = document.getElementById("noid03");
-
-        amazonForm.addEventListener("submit", function (event) {
-            if (orderInput.value.trim() === "" && !noIdCheckbox.checked) {
-                event.preventDefault(); // Form submit hone se rokta hai
-                alert("Please enter your Amazon Order ID or check the 'I don’t know my order ID' box.");
-            }
-        });
-
-        noIdCheckbox.addEventListener("change", function () {
-            if (noIdCheckbox.checked) {
-                orderInput.value = "";
-                orderInput.disabled = true;
-            } else {
-                orderInput.disabled = false;
-            }
-        });
-    });
-</script>
 
 </body>
