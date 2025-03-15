@@ -233,7 +233,7 @@
                             <div class="form-customerinfo card mb-5 list_in" style="display: none;">
                                 <p class="w-100 mb-4">Please tell us your order ID, we will solve your problem quickly!
                                 </p>
-                                <form action="{{ route('save.unhappyform') }}" method="POST" id="amazonForm03">
+                                <form action="{{ route('save.unhappyform') }}" method="POST" >
                                     @csrf
                                     <input type="hidden" name="option" class="display-selected-reason" readonly>
 
@@ -295,7 +295,7 @@
                             <div class="form-customerinfo card mb-5 list_in" style="display: none;">
                                 <p class="w-100 mb-4">Please tell us your order ID, we will solve your problem quickly!
                                 </p>
-                                <form action="{{ route('save.unhappyform') }}" method="POST">
+                                <form action="{{ route('save.unhappyform') }}" method="POST" id="amazonForm03">
                                     @csrf
                                     <input type="hidden" name="option" class="display-selected-reason" readonly>
                                     <input type="hidden"  value="Get_$10_Amazon_Gift_Card_Without_Refund" name="option2" readonly>
