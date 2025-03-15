@@ -233,7 +233,7 @@
                             <div class="form-customerinfo card mb-5 list_in" style="display: none;">
                                 <p class="w-100 mb-4">Please tell us your order ID, we will solve your problem quickly!
                                 </p>
-                                {{-- <form action="{{ route('save.unhappyform') }}" method="POST">
+                                <form action="{{ route('save.unhappyform') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="option" class="display-selected-reason" readonly>
 
@@ -251,7 +251,7 @@
                                     <div class="form-group row">
                                         <div class="col-sm-3 col-1"></div>
                                         <label class="col-sm-9 col-11 mb-0" for="noid">
-                                            <input class="form-check-input ml-2 noid-checkbox" type="checkbox" id="noid">
+                                            <input class="form-check-input ml-2" type="checkbox" id="noid02">
                                             <span class="ml-2">I don’t know my order ID</span>
                                         </label>
                                     </div>
@@ -284,88 +284,7 @@
                                     <div class="text-center tshi" style="clear: both; color: rgb(244, 67, 54);">Please
                                         input shipping address, name, email address.</div>
                                     <button type="submit" class="btn btn-primary float-right">Submit</button>
-                                </form> --}}
-                                <form action="{{ route('save.unhappyform') }}" method="POST" id="unhappyForm">
-                                    @csrf
-                                    <input type="hidden" name="option" class="display-selected-reason" readonly>
-                                    <input type="hidden" value="GetReplacemet" name="option2" readonly>
-                                
-                                    <!-- Amazon Order ID -->
-                                    <div class="form-group row mb-0">
-                                        <label for="inputorderID02" class="col-sm-3 col-form-label text-right">Amazon Order ID</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control order" id="inputorderID02" name="amazon_id" required>
-                                            <small id="orderIDError" class="text-danger d-none">Order ID is required.</small>
-                                        </div>
-                                    </div>
-                                
-                                    <!-- Checkbox for "I don’t know my order ID" -->
-                                    <div class="form-group row">
-                                        <div class="col-sm-3 col-1"></div>
-                                        <label class="col-sm-9 col-11 mb-0">
-                                            <input class="form-check-input ml-2" type="checkbox" id="noidCheckbox">
-                                            <span class="ml-2">I don’t know my order ID</span>
-                                        </label>
-                                    </div>
-                                
-                                    <!-- Shipping Address -->
-                                    <div class="form-group row">
-                                        <label for="inputAddress01" class="col-sm-3 col-form-label text-right">Shipping Address</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputAddress01" name="shipping_address" required>
-                                        </div>
-                                    </div>
-                                
-                                    <!-- Name -->
-                                    <div class="form-group row">
-                                        <label for="inputName02" class="col-sm-3 col-form-label text-right">Name</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control name" id="inputName02" name="name" required>
-                                        </div>
-                                    </div>
-                                
-                                    <!-- Email -->
-                                    <div class="form-group row">
-                                        <label for="inputEmail02" class="col-sm-3 col-form-label text-right">Email</label>
-                                        <div class="col-sm-9">
-                                            <input type="email" class="form-control email" id="inputEmail02" name="email" required>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="text-center tshi" style="clear: both; color: rgb(244, 67, 54);">
-                                        Please input shipping address, name, email address.
-                                    </div>
-                                
-                                    <button type="submit" class="btn btn-primary float-right">Submit</button>
                                 </form>
-                                
-                                <script>
-                                    document.getElementById("noidCheckbox").addEventListener("change", function() {
-                                        let orderIDField = document.getElementById("inputorderID02");
-                                        let orderIDError = document.getElementById("orderIDError");
-                                
-                                        if (this.checked) {
-                                            orderIDField.removeAttribute("required");
-                                            orderIDField.classList.remove("is-invalid");
-                                            orderIDError.classList.add("d-none"); // Hide error message
-                                        } else {
-                                            orderIDField.setAttribute("required", "required");
-                                        }
-                                    });
-                                
-                                    document.getElementById("unhappyForm").addEventListener("submit", function(event) {
-                                        let orderIDField = document.getElementById("inputorderID02");
-                                        let orderIDError = document.getElementById("orderIDError");
-                                        let checkbox = document.getElementById("noidCheckbox");
-                                
-                                        if (!checkbox.checked && orderIDField.value.trim() === "") {
-                                            event.preventDefault(); // Stop form submission
-                                            orderIDField.classList.add("is-invalid");
-                                            orderIDError.classList.remove("d-none"); // Show error message
-                                        }
-                                    });
-                                </script>
-                                
                             </div>
                             <div class="form-check row list">
                                 <input class="form-check-input" type="radio" id="solutions3" name="unchoose2"
@@ -392,7 +311,7 @@
                                     <div class="form-group row">
                                         <div class="col-sm-3 col-1"></div>
                                         <label class="col-sm-9 col-11 mb-0" for="noid">
-                                            <input class="form-check-input ml-2 " type="checkbox" id="noid">
+                                            <input class="form-check-input ml-2" type="checkbox" id="noid03">
                                             <span class="ml-2">I don’t know my order ID</span>
                                         </label>
                                     </div>
@@ -963,17 +882,28 @@
     </style>
 
 <script>
-    document.querySelectorAll(".noid-checkbox").forEach((checkbox, index) => {
-        checkbox.addEventListener("change", function() {
-            let orderIDField = document.querySelectorAll(".order")[index];
+    document.addEventListener("DOMContentLoaded", function () {
+        const orderInput = document.getElementById("inputorderID03");
+        const noIdCheckbox = document.getElementById("noid03");
+        const form = document.querySelector("form"); // Change this to your form selector
 
-            if (this.checked) {
-                orderIDField.removeAttribute("required");
+        form.addEventListener("submit", function (event) {
+            if (!orderInput.value.trim() && !noIdCheckbox.checked) {
+                event.preventDefault(); // Form submit hone se rokta hai
+                alert("Please enter your Amazon Order ID or check the 'I don’t know my order ID' box.");
+            }
+        });
+
+        noIdCheckbox.addEventListener("change", function () {
+            if (noIdCheckbox.checked) {
+                orderInput.value = ""; // Checkbox check karne par input clear ho jaye
+                orderInput.setAttribute("disabled", "true");
             } else {
-                orderIDField.setAttribute("required", "required");
+                orderInput.removeAttribute("disabled");
             }
         });
     });
 </script>
+
 
 </body>
