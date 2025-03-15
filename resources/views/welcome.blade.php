@@ -184,7 +184,7 @@
                                 <form action="{{ route('save.unhappyform') }}" method="POST" id="amazonForm01">
                                     @csrf
                                     <input type="hidden" class="display-selected-reason" name="option" readonly>
-                                    <input type="hidden"  value="fullyfunded" name="option2" readonly>
+                                    <input type="hidden" value="fullyfunded" name="option2" readonly>
                                     {{-- <input type="text" class="display-selected-reason" readonly> --}}
 
                                     <div class="form-group row mb-0">
@@ -216,7 +216,8 @@
                                             class="col-sm-3 col-form-label  text-right">Email</label>
                                         <div class="col-sm-9">
                                             <input type="email" class="form-control email" id="inputEmail01"
-                                                placeholder="" inputmode="email" value="" name="email" required>
+                                                placeholder="" inputmode="email" value="" name="email"
+                                                required>
                                         </div>
                                     </div>
                                     <div class="text-center tshi" style="clear: both; color: rgb(244, 67, 54);">Please
@@ -225,27 +226,27 @@
                                     <button type="submit" class="btn btn-primary float-right">Submit</button>
                                 </form>
                                 <script>
-                                    document.addEventListener("DOMContentLoaded", function () {
+                                    document.addEventListener("DOMContentLoaded", function() {
                                         console.log("✅ Script loaded successfully!");
-                            
+
                                         // Select Form and Inputs
                                         const form = document.getElementById("amazonForm01");
                                         const orderInput = document.getElementById("inputorderID01");
                                         const noIdCheckbox = document.getElementById("noid01");
-                            
+
                                         if (!form || !orderInput || !noIdCheckbox) {
                                             console.error("❌ ERROR: One or more elements not found!");
                                             return;
                                         }
                                         console.log("✅ Form and input fields found. Script is running...");
-                            
+
                                         // Event Listener for Form Submission
-                                        form.addEventListener("submit", function (event) {
+                                        form.addEventListener("submit", function(event) {
                                             console.log("📝 Form submission attempted...");
-                            
+
                                             console.log("🔎 Order ID Input Value:", orderInput.value);
                                             console.log("🔍 Checkbox Checked:", noIdCheckbox.checked);
-                            
+
                                             if (!orderInput.value.trim() && !noIdCheckbox.checked) {
                                                 event.preventDefault(); // Stop form submission
                                                 alert("Please enter your Amazon Order ID or check the 'I don’t know my order ID' box.");
@@ -254,9 +255,9 @@
                                                 console.log("✅ Form is valid, submitting...");
                                             }
                                         });
-                            
+
                                         // Checkbox Change Event
-                                        noIdCheckbox.addEventListener("change", function () {
+                                        noIdCheckbox.addEventListener("change", function() {
                                             if (this.checked) {
                                                 orderInput.value = ""; // Clear input field
                                                 orderInput.setAttribute("disabled", "true"); // Disable input
@@ -278,12 +279,12 @@
                                 <p class="w-100 mb-4">Please tell us your order ID, we will solve your problem quickly!
                                 </p>
                                 <form action="{{ route('save.unhappyform') }}" method="POST" id="amazonForm02">
-                                   
+
 
                                     @csrf
                                     <input type="hidden" name="option" class="display-selected-reason" readonly>
 
-                                    <input type="hidden"   value="GetReplacemet" name="option2" readonly>
+                                    <input type="hidden" value="GetReplacemet" name="option2" readonly>
 
 
                                     <div class="form-group row mb-0">
@@ -297,7 +298,8 @@
                                     <div class="form-group row">
                                         <div class="col-sm-3 col-1"></div>
                                         <label class="col-sm-9 col-11 mb-0" for="noid">
-                                            <input class="form-check-input ml-2" type="checkbox" id="noid02" name="noid" value="no id">
+                                            <input class="form-check-input ml-2" type="checkbox" id="noid02"
+                                                name="noid" value="no id">
                                             <span class="ml-2">I don’t know my order ID</span>
                                         </label>
                                     </div>
@@ -333,27 +335,27 @@
                                 </form>
 
                                 <script>
-                                    document.addEventListener("DOMContentLoaded", function () {
+                                    document.addEventListener("DOMContentLoaded", function() {
                                         console.log("✅ Script loaded successfully!");
-                            
+
                                         // Select Form and Inputs
                                         const form = document.getElementById("amazonForm02");
                                         const orderInput = document.getElementById("inputorderID02");
                                         const noIdCheckbox = document.getElementById("noid02");
-                            
+
                                         if (!form || !orderInput || !noIdCheckbox) {
                                             console.error("❌ ERROR: One or more elements not found!");
                                             return;
                                         }
                                         console.log("✅ Form and input fields found. Script is running...");
-                            
+
                                         // Event Listener for Form Submission
-                                        form.addEventListener("submit", function (event) {
+                                        form.addEventListener("submit", function(event) {
                                             console.log("📝 Form submission attempted...");
-                            
+
                                             console.log("🔎 Order ID Input Value:", orderInput.value);
                                             console.log("🔍 Checkbox Checked:", noIdCheckbox.checked);
-                            
+
                                             if (!orderInput.value.trim() && !noIdCheckbox.checked) {
                                                 event.preventDefault(); // Stop form submission
                                                 alert("Please enter your Amazon Order ID or check the 'I don’t know my order ID' box.");
@@ -362,9 +364,9 @@
                                                 console.log("✅ Form is valid, submitting...");
                                             }
                                         });
-                            
+
                                         // Checkbox Change Event
-                                        noIdCheckbox.addEventListener("change", function () {
+                                        noIdCheckbox.addEventListener("change", function() {
                                             if (this.checked) {
                                                 orderInput.value = ""; // Clear input field
                                                 orderInput.setAttribute("disabled", "true"); // Disable input
@@ -431,94 +433,102 @@
                                 <form action="{{ route('save.unhappyform') }}" method="POST" id="amazonForm03">
                                     @csrf
                                     <input type="hidden" name="option" class="display-selected-reason" readonly>
-                                    <input type="hidden" value="Get_$10_Amazon_Gift_Card_Without_Refund" name="option2" readonly>
-                        
+                                    <input type="hidden" value="Get_$10_Amazon_Gift_Card_Without_Refund"
+                                        name="option2" readonly>
+
                                     <!-- Amazon Order ID -->
                                     <div class="form-group row mb-3">
-                                        <label for="inputorderID03" class="col-sm-3 col-form-label text-right">Amazon Order ID</label>
+                                        <label for="inputorderID03" class="col-sm-3 col-form-label text-right">Amazon
+                                            Order ID</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputorderID03" name="amazon_id">
+                                            <input type="text" class="form-control" id="inputorderID03"
+                                                name="amazon_id">
                                         </div>
                                     </div>
-                        
+
                                     <!-- Checkbox -->
                                     <div class="form-group row">
                                         <div class="col-sm-3"></div>
                                         <label class="col-sm-9">
-                                            <input class="form-check-input" type="checkbox" id="noid03" name="noid" value="no id">
+                                            <input class="form-check-input" type="checkbox" id="noid03"
+                                                name="noid" value="no id">
                                             <span class="ml-2">I don’t know my order ID</span>
                                         </label>
                                     </div>
-                        
+
                                     <!-- Name -->
                                     <div class="form-group row mt-3">
-                                        <label for="inputName03" class="col-sm-3 col-form-label text-right">Name</label>
+                                        <label for="inputName03"
+                                            class="col-sm-3 col-form-label text-right">Name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputName03" name="name" required>
+                                            <input type="text" class="form-control" id="inputName03"
+                                                name="name" required>
                                         </div>
                                     </div>
-                        
+
                                     <!-- Email -->
                                     <div class="form-group row mt-3">
-                                        <label for="inputEmail03" class="col-sm-3 col-form-label text-right">Email</label>
+                                        <label for="inputEmail03"
+                                            class="col-sm-3 col-form-label text-right">Email</label>
                                         <div class="col-sm-9">
-                                            <input type="email" class="form-control" id="inputEmail03" name="email" required>
+                                            <input type="email" class="form-control" id="inputEmail03"
+                                                name="email" required>
                                         </div>
                                     </div>
-                        
+
                                     {{-- <div class="text-center text-danger mt-3">
                                         Please input name, email address.
                                     </div> --}}
-                        
+
                                     <!-- Submit Button -->
                                     <button type="submit" class="btn btn-primary float-right mt-3">Submit</button>
                                 </form>
-                         
-                        
-                            <script>
-                                document.addEventListener("DOMContentLoaded", function () {
-                                    console.log("✅ Script loaded successfully!");
-                        
-                                    // Select Form and Inputs
-                                    const form = document.getElementById("amazonForm03");
-                                    const orderInput = document.getElementById("inputorderID03");
-                                    const noIdCheckbox = document.getElementById("noid03");
-                        
-                                    if (!form || !orderInput || !noIdCheckbox) {
-                                        console.error("❌ ERROR: One or more elements not found!");
-                                        return;
-                                    }
-                                    console.log("✅ Form and input fields found. Script is running...");
-                        
-                                    // Event Listener for Form Submission
-                                    form.addEventListener("submit", function (event) {
-                                        console.log("📝 Form submission attempted...");
-                        
-                                        console.log("🔎 Order ID Input Value:", orderInput.value);
-                                        console.log("🔍 Checkbox Checked:", noIdCheckbox.checked);
-                        
-                                        if (!orderInput.value.trim() && !noIdCheckbox.checked) {
-                                            event.preventDefault(); // Stop form submission
-                                            alert("Please enter your Amazon Order ID or check the 'I don’t know my order ID' box.");
-                                            console.error("⛔ Error: Order ID is empty and checkbox is unchecked.");
-                                        } else {
-                                            console.log("✅ Form is valid, submitting...");
+
+
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function() {
+                                        console.log("✅ Script loaded successfully!");
+
+                                        // Select Form and Inputs
+                                        const form = document.getElementById("amazonForm03");
+                                        const orderInput = document.getElementById("inputorderID03");
+                                        const noIdCheckbox = document.getElementById("noid03");
+
+                                        if (!form || !orderInput || !noIdCheckbox) {
+                                            console.error("❌ ERROR: One or more elements not found!");
+                                            return;
                                         }
+                                        console.log("✅ Form and input fields found. Script is running...");
+
+                                        // Event Listener for Form Submission
+                                        form.addEventListener("submit", function(event) {
+                                            console.log("📝 Form submission attempted...");
+
+                                            console.log("🔎 Order ID Input Value:", orderInput.value);
+                                            console.log("🔍 Checkbox Checked:", noIdCheckbox.checked);
+
+                                            if (!orderInput.value.trim() && !noIdCheckbox.checked) {
+                                                event.preventDefault(); // Stop form submission
+                                                alert("Please enter your Amazon Order ID or check the 'I don’t know my order ID' box.");
+                                                console.error("⛔ Error: Order ID is empty and checkbox is unchecked.");
+                                            } else {
+                                                console.log("✅ Form is valid, submitting...");
+                                            }
+                                        });
+
+                                        // Checkbox Change Event
+                                        noIdCheckbox.addEventListener("change", function() {
+                                            if (this.checked) {
+                                                orderInput.value = ""; // Clear input field
+                                                orderInput.setAttribute("disabled", "true"); // Disable input
+                                                console.log("🔘 Checkbox checked: Order ID field disabled.");
+                                            } else {
+                                                orderInput.removeAttribute("disabled"); // Enable input
+                                                console.log("🔲 Checkbox unchecked: Order ID field enabled.");
+                                            }
+                                        });
                                     });
-                        
-                                    // Checkbox Change Event
-                                    noIdCheckbox.addEventListener("change", function () {
-                                        if (this.checked) {
-                                            orderInput.value = ""; // Clear input field
-                                            orderInput.setAttribute("disabled", "true"); // Disable input
-                                            console.log("🔘 Checkbox checked: Order ID field disabled.");
-                                        } else {
-                                            orderInput.removeAttribute("disabled"); // Enable input
-                                            console.log("🔲 Checkbox unchecked: Order ID field enabled.");
-                                        }
-                                    });
-                                });
-                            </script>
+                                </script>
                             </div>
                             <div class="form-check row list" id="put">
                                 <input class="form-check-input" type="radio" id="solutions4" name="unchoose2"
@@ -534,7 +544,7 @@
                                         <input type="hidden" name="option" class="display-selected-reason"
                                             readonly>
 
-                                            <input type="hidden"  value="other" name="option2" readonly>
+                                        <input type="hidden" value="other" name="option2" readonly>
 
 
                                         <div class="form-group row">
@@ -658,27 +668,17 @@
                         </div>
 
                         <div class="w-100 mb-3 text-center">Which bonus would you like to choose?</div>
-                        <script>
-                            document.addEventListener("DOMContentLoaded", function () {
-                                const form = document.getElementById("optionFormHappy");
-                                form.addEventListener("submit", function (event) {
-                                    const selectedOption = document.querySelector('input[name="opHappy"]:checked');
-                                    if (!selectedOption) {
-                                        event.preventDefault();
-                                        alert("Please select an option before proceeding!");
-                                    }
-                                });
-                            });
-                        </script>
 
 
 
-                        <form action="{{ route('save.form') }}" method="POST" enctype="multipart/form-data" id="optionFormHappy">
+
+                        <form action="{{ route('save.form') }}" method="POST" enctype="multipart/form-data"
+                            id="optionFormHappy">
                             @csrf
-                        <div class="form-gift mb-3 row">
+                            <div class="form-gift mb-3 row">
 
 
-                            <div class="col-md-6 col-sm-6 col-6">
+                                {{-- <div class="col-md-6 col-sm-6 col-6">
 
                                 <label class="text-center radio card rs">
 
@@ -692,10 +692,18 @@
 
                                 </label>
 
-                            </div>
+                            </div> --}}
+                                <div class="col-md-6 col-sm-6 col-6">
+                                    <label class="text-center radio card rs">
+                                        <p class="icon icon-product"
+                                            style="background-image: url(Uploads/images/2021/06/03/1622719547_img.svg);">
+                                        </p>
+                                        <p>Same Item for Free</p>
+                                        <input type="radio" name="opHappy" value="Same Item for Free">
+                                    </label>
+                                </div>
 
-
-                            <div class="col-md-6 col-sm-6 col-6">
+                                {{-- <div class="col-md-6 col-sm-6 col-6">
 
                                 <label class="text-center radio card rs">
 
@@ -709,47 +717,56 @@
 
                                 </label>
 
+                            </div> --}}
+                                <div class="col-md-6 col-sm-6 col-6">
+                                    <label class="text-center radio card rs">
+                                        <p class="icon icon-product"
+                                            style="background-image: url(Uploads/images/2021/06/03/1622719533_img.svg);">
+                                        </p>
+                                        <p>15 Gift Card</p>
+                                        <input type="radio" name="opHappy" value="15 Gift Card">
+                                    </label>
+                                </div>
+
                             </div>
 
+                            <div>
 
-                        </div>
+                                <div class="form-customerinfo card a a01" style="overflow: hidden;">
 
-                        <div>
-
-                            <div class="form-customerinfo card a a01" style="overflow: hidden;">
-
-                                <p class="w-100 mb-4">
-                                <p class="reviewCardStyle"
-                                    style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:0px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
-                                    <span> </span>
-                                </p>
-                                <p class="reviewCardStyle"
-                                    style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:0px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
-                                    Please kindly support our growing business by&nbsp;<span
-                                        style="box-sizing:border-box;font-weight:bolder;">leaving us 5
-                                        stars</span>&nbsp;to claim your reward!
-                                </p>
-                                <p class="reviewCardStyle"
-                                    style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:0px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
-                                    <span style="box-sizing:border-box;font-weight:bolder;">MAKE SURE TO SAVE YOUR
-                                        REVIEW SCREENSHOT AFTER LEAVING THE REVIEW, PLEASE RETURN HERE TO UPLOAD
-                                        IT</span>
-                                </p>
-                                <p>
+                                    <p class="w-100 mb-4">
+                                    <p class="reviewCardStyle"
+                                        style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:0px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
+                                        <span> </span>
+                                    </p>
+                                    <p class="reviewCardStyle"
+                                        style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:0px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
+                                        Please kindly support our growing business by&nbsp;<span
+                                            style="box-sizing:border-box;font-weight:bolder;">leaving us 5
+                                            stars</span>&nbsp;to claim your reward!
+                                    </p>
+                                    <p class="reviewCardStyle"
+                                        style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:0px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
+                                        <span style="box-sizing:border-box;font-weight:bolder;">MAKE SURE TO SAVE YOUR
+                                            REVIEW SCREENSHOT AFTER LEAVING THE REVIEW, PLEASE RETURN HERE TO UPLOAD
+                                            IT</span>
+                                    </p>
+                                    <p>
+                                        <br>
+                                    </p>
                                     <br>
-                                </p>
-                                <br>
 
-                             
+
                                     <div class="form-group row" style="justify-content: center;align-items: center;">
 
                                         <div class="uploader">
 
                                             <input type="text" id="filename" readonly="">
 
-                                            <img src="image/dp.png" alt="" style="width:45px;" >
+                                            <img src="image/dp.png" alt="" style="width:45px;">
 
-                                            <input type="file" name="pic" size="30" id="file" required>
+                                            <input type="file" name="pic" size="30" id="file"
+                                                required>
 
                                         </div>
                                         <div class="file_img"><a
@@ -819,111 +836,143 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary float-right">Submit</button>
 
-                                    
-                            
 
-                                <div class="text-center tshi"
-                                    style="clear: both; color: rgb(244, 67, 54); display: none;">Please input email
-                                    address, name.review screenshot</div>
 
-                            </div>
-                        
-                            <div class="form-customerinfo card a" style="display: none;overflow.hidden;">
 
-                                <p class="w-100 mb-4">
-                                <p class="reviewCardStyle"
-                                    style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:0px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
-                                    <span> </span>
-                                </p>
-                                <p class="reviewCardStyle"
-                                    style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:0px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
-                                    Please kindly support our growing business by&nbsp;<span
-                                        style="box-sizing:border-box;font-weight:bolder;">leaving us 5
-                                        stars</span>&nbsp;to claim your reward!
-                                </p>
-                                <p class="reviewCardStyle"
-                                    style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:0px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
-                                    <span style="box-sizing:border-box;font-weight:bolder;">MAKE SURE TO SAVE YOUR
-                                        REVIEW SCREENSHOT AFTER LEAVING THE REVIEW, PLEASE RETURN HERE TO UPLOAD
-                                        IT</span>
-                                </p>
-                                <p>
+                                    <div class="text-center tshi"
+                                        style="clear: both; color: rgb(244, 67, 54); display: none;">Please input email
+                                        address, name.review screenshot</div>
+
+                                </div>
+
+                                <div class="form-customerinfo card a" style="display: none;overflow.hidden;">
+
+                                    <p class="w-100 mb-4">
+                                    <p class="reviewCardStyle"
+                                        style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:0px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
+                                        <span> </span>
+                                    </p>
+                                    <p class="reviewCardStyle"
+                                        style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:0px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
+                                        Please kindly support our growing business by&nbsp;<span
+                                            style="box-sizing:border-box;font-weight:bolder;">leaving us 5
+                                            stars</span>&nbsp;to claim your reward!
+                                    </p>
+                                    <p class="reviewCardStyle"
+                                        style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:0px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
+                                        <span style="box-sizing:border-box;font-weight:bolder;">MAKE SURE TO SAVE YOUR
+                                            REVIEW SCREENSHOT AFTER LEAVING THE REVIEW, PLEASE RETURN HERE TO UPLOAD
+                                            IT</span>
+                                    </p>
+                                    <p>
+                                        <br>
+                                    </p>
                                     <br>
-                                </p>
-                                <br>
 
-                                <form enctype="multipart/form-data">
+                                    <form enctype="multipart/form-data">
 
-                                    <div class="form-group row" style="ustify-content: center;align-items: center;">
+                                        <div class="form-group row"
+                                            style="ustify-content: center;align-items: center;">
 
-                                        <div class="uploader">
+                                            <div class="uploader">
 
-                                            <input type="text" id="filename" readonly="">
+                                                <input type="text" id="filename" readonly="">
 
-                                            <img src="image/dp.png" alt="" style="width:45px;">
+                                                <img src="image/dp.png" alt="" style="width:45px;">
 
-                                            <input type="file" size="30" name="pic" id="file2">
+                                                <input type="file" size="30" name="pic" id="file2">
 
-                                        </div>
-                                        <div class="file_img"><a
-                                                href="Uploads/images/2021/09/30/1632986580_classify_img.png"><img
-                                                    src="Uploads/images/2021/09/30/1632986580_classify_img.png"></a>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-
-                                        <label for="inputEmail" class="col-sm-2 col-form-label  text-right">order
-                                            ID</label>
-
-                                        <div class="col-sm-10">
-
-                                            <input type="text" class="form-control id2" name="data[input_id]"
-                                                id="" placeholder="" inputmode="text" value="">
-
+                                            </div>
+                                            <div class="file_img"><a
+                                                    href="Uploads/images/2021/09/30/1632986580_classify_img.png"><img
+                                                        src="Uploads/images/2021/09/30/1632986580_classify_img.png"></a>
+                                            </div>
                                         </div>
 
-                                    </div>
+                                        <div class="form-group row">
 
-                                    <div class="form-group row">
+                                            <label for="inputEmail" class="col-sm-2 col-form-label  text-right">order
+                                                ID</label>
 
-                                        <label for="inputEmail"
-                                            class="col-sm-2 col-form-label  text-right">Email</label>
+                                            <div class="col-sm-10">
 
-                                        <div class="col-sm-10">
+                                                <input type="text" class="form-control id2" name="data[input_id]"
+                                                    id="" placeholder="" inputmode="text" value="">
 
-                                            <input type="email" class="form-control email2" name="data[email]"
-                                                id="inputEmail" placeholder="" inputmode="email" value="">
+                                            </div>
 
                                         </div>
 
-                                    </div>
+                                        <div class="form-group row">
 
-                                    <div class="form-group row">
+                                            <label for="inputEmail"
+                                                class="col-sm-2 col-form-label  text-right">Email</label>
 
-                                        <label for="inputName" class="col-sm-2 col-form-label  text-right">amazon
-                                            Name</label>
+                                            <div class="col-sm-10">
 
-                                        <div class="col-sm-10">
+                                                <input type="email" class="form-control email2" name="data[email]"
+                                                    id="inputEmail" placeholder="" inputmode="email" value="">
 
-                                            <input type="name" class="form-control name2" name="data[name]"
-                                                id="inputName" placeholder="" inputmode="text" value="">
+                                            </div>
 
                                         </div>
 
-                                    </div>
+                                        <div class="form-group row">
 
-                                </form>
+                                            <label for="inputName" class="col-sm-2 col-form-label  text-right">amazon
+                                                Name</label>
 
-                                <div class="text-center tshi"
-                                    style="clear: both; color: rgb(244, 67, 54); display: none;">Please input email
-                                    address, name.review screenshot</div>
+                                            <div class="col-sm-10">
+
+                                                <input type="name" class="form-control name2" name="data[name]"
+                                                    id="inputName" placeholder="" inputmode="text" value="">
+
+                                            </div>
+
+                                        </div>
+
+                                    </form>
+
+                                    <div class="text-center tshi"
+                                        style="clear: both; color: rgb(244, 67, 54); display: none;">Please input email
+                                        address, name.review screenshot</div>
+
+                                </div>
+
 
                             </div>
-
-
-                        </div>
-                    </form>
+                        </form>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function () {
+                                console.log("✅ Script Loaded!");
+                    
+                                // Select Form
+                                const form = document.getElementById("optionFormHappy");
+                    
+                                // Check if form exists
+                                if (!form) {
+                                    console.error("❌ ERROR: Form not found!");
+                                    return;
+                                }
+                    
+                                console.log("✅ Form Found!");
+                    
+                                // Add Event Listener on Form Submit
+                                form.addEventListener("submit", function (event) {
+                                    console.log("📝 Form submission attempted...");
+                    
+                                    const selectedOption = document.querySelector('input[name="opHappy"]:checked');
+                    
+                                    if (!selectedOption) {
+                                        event.preventDefault();
+                                        alert("Please select an option before proceeding!");
+                                        console.error("⛔ Error: No option selected.");
+                                    } else {
+                                        console.log("✅ Selected Option:", selectedOption.value);
+                                    }
+                                });
+                            });
+                        </script>
                         <div class="clearfix"></div>
 
                         <div class="row progress-control mt-3 mt-sm-5">
