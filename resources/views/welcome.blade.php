@@ -676,58 +676,23 @@
                             id="optionFormHappy">
                             @csrf
                             <div class="form-gift mb-3 row">
-
-
-                                {{-- <div class="col-md-6 col-sm-6 col-6">
-
-                                <label class="text-center radio card rs">
-
-                                    <p class="icon icon-product"
-                                        style="background-image: url(Uploads/images/2021/06/03/1622719547_img.svg);">
-                                    </p>
-
-                                    <p>Same Item for Free</p>
-
-                                    <input type="radio" name="opHappy" value="Same Item for Free">
-
-                                </label>
-
-                            </div> --}}
+                                <!-- Option 1 -->
                                 <div class="col-md-6 col-sm-6 col-6">
-                                    <label class="text-center radio card rs">
-                                        <p class="icon icon-product"
-                                            style="background-image: url(Uploads/images/2021/06/03/1622719547_img.svg);">
-                                        </p>
+                                    <label class="text-center radio card ">
+                                        <p class="icon icon-product" style="background-image: url(Uploads/images/2021/06/03/1622719547_img.svg);"></p>
                                         <p>Same Item for Free</p>
                                         <input type="radio" name="opHappy" value="Same Item for Free">
                                     </label>
                                 </div>
-
-                                {{-- <div class="col-md-6 col-sm-6 col-6">
-
-                                <label class="text-center radio card rs">
-
-                                    <p class="icon icon-product"
-                                        style="background-image: url(Uploads/images/2021/06/03/1622719533_img.svg);">
-                                    </p>
-
-                                    <p>15 Gift Card</p>
-
-                                    <input type="radio" name="opHappy" value="15 Gift Card">
-
-                                </label>
-
-                            </div> --}}
+                
+                                <!-- Option 2 -->
                                 <div class="col-md-6 col-sm-6 col-6">
-                                    <label class="text-center radio card rs">
-                                        <p class="icon icon-product"
-                                            style="background-image: url(Uploads/images/2021/06/03/1622719533_img.svg);">
-                                        </p>
+                                    <label class="text-center radio card ">
+                                        <p class="icon icon-product" style="background-image: url(Uploads/images/2021/06/03/1622719533_img.svg);"></p>
                                         <p>15 Gift Card</p>
                                         <input type="radio" name="opHappy" value="15 Gift Card">
                                     </label>
                                 </div>
-
                             </div>
 
                             <div>
@@ -735,10 +700,10 @@
                                 <div class="form-customerinfo card a a01" style="overflow: hidden;">
 
                                     <p class="w-100 mb-4">
-                                    <p class="reviewCardStyle"
+                                        {{-- <p class="reviewCardStyle"
                                         style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:0px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
                                         <span> </span>
-                                    </p>
+                                    </p> --}}
                                     <p class="reviewCardStyle"
                                         style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:0px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
                                         Please kindly support our growing business by&nbsp;<span
@@ -845,7 +810,7 @@
 
                                 </div>
 
-                                <div class="form-customerinfo card a" style="display: none;overflow.hidden;">
+                                {{-- <div class="form-customerinfo card a" style="display: none;overflow.hidden;">
 
                                     <p class="w-100 mb-4">
                                     <p class="reviewCardStyle"
@@ -937,7 +902,7 @@
                                         style="clear: both; color: rgb(244, 67, 54); display: none;">Please input email
                                         address, name.review screenshot</div>
 
-                                </div>
+                                </div> --}}
 
 
                             </div>
@@ -945,24 +910,21 @@
                         <script>
                             document.addEventListener("DOMContentLoaded", function () {
                                 console.log("✅ Script Loaded!");
-                        
+                    
                                 const form = document.getElementById("optionFormHappy");
-                        
+                    
                                 if (!form) {
                                     console.error("❌ ERROR: Form not found!");
                                     return;
                                 }
-                        
+                    
                                 console.log("✅ Form Found!");
-                        
-                                // Ensure form is visible
-                                form.style.display = "block"; // Prevent accidental hiding
-                        
+                    
                                 form.addEventListener("submit", function (event) {
                                     console.log("📝 Form submission attempted...");
-                        
+                    
                                     const selectedOption = document.querySelector('input[name="opHappy"]:checked');
-                        
+                    
                                     if (!selectedOption) {
                                         event.preventDefault();
                                         alert("Please select an option before proceeding!");
@@ -971,17 +933,16 @@
                                         console.log("✅ Selected Option:", selectedOption.value);
                                     }
                                 });
-                        
+                    
                                 // Debug radio button change
                                 document.querySelectorAll('input[name="opHappy"]').forEach(radio => {
                                     radio.addEventListener("change", function () {
                                         console.log("🔄 Option changed to:", this.value);
-                                        form.style.display = "block"; // Ensure form is not hidden
                                     });
                                 });
                             });
                         </script>
-                        
+
                         <div class="clearfix"></div>
 
                         <div class="row progress-control mt-3 mt-sm-5">
