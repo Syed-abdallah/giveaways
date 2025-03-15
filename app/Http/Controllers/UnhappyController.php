@@ -47,8 +47,8 @@ class UnhappyController extends Controller
 
    Mail::send('email.admin-notification', [
        'order' => $order,
-   ], function ($message) use ($adminEmail) {
-       $message->to($adminEmail)->subject('New Review Received');
+   ], function ($message) use ($admin) {
+       $message->to($admin)->subject('New Review Received');
    });
 
 
