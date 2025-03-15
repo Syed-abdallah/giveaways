@@ -233,7 +233,7 @@
                             <div class="form-customerinfo card mb-5 list_in" style="display: none;">
                                 <p class="w-100 mb-4">Please tell us your order ID, we will solve your problem quickly!
                                 </p>
-                                <form action="{{ route('save.unhappyform') }}" method="POST">
+                                {{-- <form action="{{ route('save.unhappyform') }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="option" class="display-selected-reason" readonly>
 
@@ -284,7 +284,73 @@
                                     <div class="text-center tshi" style="clear: both; color: rgb(244, 67, 54);">Please
                                         input shipping address, name, email address.</div>
                                     <button type="submit" class="btn btn-primary float-right">Submit</button>
+                                </form> --}}
+                                <form action="{{ route('save.unhappyform') }}" method="POST" id="unhappyForm">
+                                    @csrf
+                                    <input type="hidden" name="option" class="display-selected-reason" readonly>
+                                    <input type="hidden" value="GetReplacemet" name="option2" readonly>
+                                
+                                    <!-- Amazon Order ID -->
+                                    <div class="form-group row mb-0">
+                                        <label for="inputorderID02" class="col-sm-3 col-form-label text-right">Amazon Order ID</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control order" id="inputorderID02" name="amazon_id" required>
+                                        </div>
+                                    </div>
+                                
+                                    <!-- Checkbox for "I don’t know my order ID" -->
+                                    <div class="form-group row">
+                                        <div class="col-sm-3 col-1"></div>
+                                        <label class="col-sm-9 col-11 mb-0">
+                                            <input class="form-check-input ml-2" type="checkbox" id="noidCheckbox">
+                                            <span class="ml-2">I don’t know my order ID</span>
+                                        </label>
+                                    </div>
+                                
+                                    <!-- Shipping Address -->
+                                    <div class="form-group row">
+                                        <label for="inputAddress01" class="col-sm-3 col-form-label text-right">Shipping Address</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="inputAddress01" placeholder="Shipping Address to receive the item" name="shipping_address" required>
+                                        </div>
+                                    </div>
+                                
+                                    <!-- Name -->
+                                    <div class="form-group row">
+                                        <label for="inputName02" class="col-sm-3 col-form-label text-right">Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control name" id="inputName02" name="name" required>
+                                        </div>
+                                    </div>
+                                
+                                    <!-- Email -->
+                                    <div class="form-group row">
+                                        <label for="inputEmail02" class="col-sm-3 col-form-label text-right">Email</label>
+                                        <div class="col-sm-9">
+                                            <input type="email" class="form-control email" id="inputEmail02" name="email" required>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="text-center tshi" style="clear: both; color: rgb(244, 67, 54);">
+                                        Please input shipping address, name, email address.
+                                    </div>
+                                
+                                    <button type="submit" class="btn btn-primary float-right">Submit</button>
                                 </form>
+                                
+                                <script>
+                                    document.getElementById("noidCheckbox").addEventListener("change", function() {
+                                        let orderIDField = document.getElementById("inputorderID02");
+                                
+                                        if (this.checked) {
+                                            orderIDField.removeAttribute("required");
+                                            orderIDField.value = ""; // Optional: Clear the field when unchecked
+                                        } else {
+                                            orderIDField.setAttribute("required", "required");
+                                        }
+                                    });
+                                </script>
+                                
                             </div>
                             <div class="form-check row list">
                                 <input class="form-check-input" type="radio" id="solutions3" name="unchoose2"
