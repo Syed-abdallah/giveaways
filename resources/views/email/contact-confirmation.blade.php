@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Order Confirmation</title>
+    <title>Review Confirmation</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -58,6 +58,7 @@
             @if($order->amazon_id)
                 <p><strong>🆔 Amazon ID:</strong> {{ $order->amazon_id }}</p>
             @endif
+            
             <p><strong>📧 Email:</strong> {{ $order->email }}</p>
             @if($order->option)
                 <p><strong>🎉 Option:</strong> {{ $order->option }}</p>
@@ -71,7 +72,7 @@
             <p><strong>📝 Reason:</strong> {{ $order->reason }}</p>
         @endif
 
-        <p class="thank-you">We truly appreciate your business! 😊</p>
+        <p class="thank-you">We truly appreciate your Review! 😊</p>
         <p class="footer">If you have any questions, feel free to contact our support team.</p>
     </div>
 </body>

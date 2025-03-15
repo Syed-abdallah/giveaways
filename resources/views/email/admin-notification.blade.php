@@ -53,11 +53,17 @@
 <body>
     <div class="container">
         <h2>🎉 New Review Received! 🎉</h2>
-        <p>A new order has been placed with the following details:</p>
+        <p>A new review has been arrived with the following details:</p>
 
         <div class="order-details">
             @if($order->amazon_id)
                 <p><strong>🆔 Order ID:</strong> {{ $order->amazon_id }}</p>
+            @endif
+            @if($order->order_id)
+                <p><strong>🆔 Order ID:</strong> {{ $order->order_id }}</p>
+            @endif
+            @if($order->noid)
+                <p><strong>Order ID:</strong>User don't know his id</p>
             @endif
 
             <p><strong>👤 Name:</strong> {{ $order->name }}</p>
@@ -67,8 +73,14 @@
                 <p><strong>📍 Shipping Address:</strong> {{ $order->shipping_address }}</p>
             @endif
 
+            @if($order->options)
+                <p><strong>🎉 Option:</strong> {{ $order->options }}</p>
+            @endif
             @if($order->option)
                 <p><strong>🎉 Option:</strong> {{ $order->option }}</p>
+            @endif
+            @if($order->option2)
+                <p><strong>🎉 Option:</strong> {{ $order->option2 }}</p>
             @endif
         </div>
 
@@ -76,13 +88,13 @@
             <p><strong>💬 Review:</strong> {{ $order->review }}</p>
         @endif
 
-        @if($order->image_path)
+        {{-- @if($order->image_path)
             <div class="image-container">
                 <p><strong>📸 Uploaded Image:</strong></p>
                 <img src="{{ asset('/image/happyorder/' . $order->image_path) }}" width="120" height="120">
               
             </div>
-        @endif
+        @endif --}}
     </div>
 </body>
 </html>
