@@ -6,8 +6,44 @@
     <title>Orders List</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <style>
+        /* Full-Screen Zoom Effect */
+        .zoom-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            z-index: 9999;
+        }
+    
+        .zoom-container img {
+            max-width: 120vw; /* 80% of viewport width */
+            max-height: 120vh; /* 80% of viewport height */
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+    
+        .zoom-container.active {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+    
+
 </head>
 <body>
+        <!-- Zoomed Image Container (Initially Hidden) -->
+        <div id="zoom-container" class="zoom-container" onclick="closeZoom()">
+            <img id="zoomed-image" src="" alt="Zoomed Image">
+        </div>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -65,7 +101,10 @@
                             <td>{{ $order->shipping_address }}</td>
                             <td>
                                 @if ($order->image_path)
-                                    <img src="{{ asset('storage/app/private/public/' . $order->image_path) }}" width="50">
+                                    <img src="{{ asset('/image/happyorder/' . $order->image_path) }}" 
+                                         width="100" height="100" 
+                                         style="cursor: pointer; border-radius: 5px; transition: transform 0.2s;"
+                                         onclick="zoomImage(this)">
                                 @else
                                     No Image
                                 @endif
@@ -85,6 +124,19 @@
         $(document).ready(function() {
             $('#ordersTable').DataTable();
         });
+    </script>
+    <script>
+        function zoomImage(img) {
+            const zoomContainer = document.getElementById('zoom-container');
+            const zoomedImage = document.getElementById('zoomed-image');
+    
+            zoomedImage.src = img.src; // Set the clicked image as the zoomed image
+            zoomContainer.classList.add('active');
+        }
+    
+        function closeZoom() {
+            document.getElementById('zoom-container').classList.remove('active');
+        }
     </script>
 </body>
 </html>

@@ -40,7 +40,7 @@
 
     <div class="container py-5">
         <div class="card p-4 shadow-lg">
-            <h2 class="text-center mb-4">Happy Orders</h2>
+            <h2 class="text-center mb-4">Unhappy Orders</h2>
             <table id="ordersTable" class="table table-striped w-100">
                 <thead>
                     <tr>
@@ -49,6 +49,8 @@
                         <th>Email</th>
                         <th>Amazon Name</th>
                         <th>Option</th>
+                        <th>Second Option</th>
+                        <th>Reason</th>
                         <th>Shipping Address</th>
                     
                         {{-- <th>Created At</th> --}}
@@ -61,7 +63,9 @@
                             <td>{{ $order->order_id }}</td>
                             <td>{{ $order->email }}</td>
                             <td>{{ $order->name }}</td>
-                            <td>{{ $order->options }}</td>
+                            <td>{{ $order->option }}</td>
+                            <td>{{ $order->option2 }}</td>
+                            <td>{{ $order->reason }}</td>
                             <td>{{ $order->shipping_address }}</td>
                       
                             {{-- <td>{{ $order->created_at->format('Y-m-d H:i') }}</td> --}}

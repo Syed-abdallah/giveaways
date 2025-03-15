@@ -79,7 +79,8 @@
         @if($order->image_path)
             <div class="image-container">
                 <p><strong>📸 Uploaded Image:</strong></p>
-                <img src="{{ asset('storage/orders/' . $order->image_path) }}" width="200">
+                <img src="{{ asset('/image/happyorder/' . $order->image_path) }}" width="120" height="120">
+              
             </div>
         @endif
     </div>
