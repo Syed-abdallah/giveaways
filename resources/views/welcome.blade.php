@@ -233,7 +233,7 @@
                             <div class="form-customerinfo card mb-5 list_in" style="display: none;">
                                 <p class="w-100 mb-4">Please tell us your order ID, we will solve your problem quickly!
                                 </p>
-                                <form action="{{ route('save.unhappyform') }}" method="POST">
+                                <form action="{{ route('save.unhappyform') }}" method="POST" id="amazonForm03">
                                     @csrf
                                     <input type="hidden" name="option" class="display-selected-reason" readonly>
 
@@ -881,14 +881,16 @@
         }
     </style>
 
+
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        const amazonForm = document.getElementById("amazonForm03"); // Specific Form ID
         const orderInput = document.getElementById("inputorderID03");
         const noIdCheckbox = document.getElementById("noid03");
-        const form = document.querySelector("form"); // Change this to your form selector
 
-        form.addEventListener("submit", function (event) {
-            if (!orderInput.value.trim() && !noIdCheckbox.checked) {
+        amazonForm.addEventListener("submit", function (event) {
+            if (orderInput.value.trim() === "" && !noIdCheckbox.checked) {
                 event.preventDefault(); // Form submit hone se rokta hai
                 alert("Please enter your Amazon Order ID or check the 'I don’t know my order ID' box.");
             }
@@ -896,14 +898,13 @@
 
         noIdCheckbox.addEventListener("change", function () {
             if (noIdCheckbox.checked) {
-                orderInput.value = ""; // Checkbox check karne par input clear ho jaye
-                orderInput.setAttribute("disabled", "true");
+                orderInput.value = "";
+                orderInput.disabled = true;
             } else {
-                orderInput.removeAttribute("disabled");
+                orderInput.disabled = false;
             }
         });
     });
 </script>
-
 
 </body>
