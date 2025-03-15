@@ -95,9 +95,10 @@
     </div>
 
     <p class="reviewCardStyle">
-        Please kindly support our growing business by <span class="bold-text">leaving us 5 stars</span> to claim your reward!
+        {{-- Please kindly support our growing business by <span class="bold-text">leaving us 5 stars</span> to claim your reward! --}}
+    Thanks you for your participation! Your gift card or free item confirmation will be sent to your email shortly.
     </p>
     <p class="reviewCardStyle">
-        <span class="bold-text">MAKE SURE TO SAVE YOUR REVIEW SCREENSHOT AFTER LEAVING THE REVIEW, PLEASE RETURN HERE TO UPLOAD IT.</span>
+        <span class="bold-text">Please check your junk/spam folder if you don't receive the email within 3 business days. Thanks again!</span>
     </p>
 </div>

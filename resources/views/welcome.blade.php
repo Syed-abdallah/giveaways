@@ -128,7 +128,7 @@
 
                             <div class="row card otherreasion  liuy other-reason-div" style="display: none;">
                                 <textarea class="unchoose-text form-control" aria-label="Please tell us what's goes wrong" placeholder="Reason...."
-                                    id="unchoose_text"></textarea>
+                                    id="unchoose_text" required></textarea>
                             </div>
 
                             <div class="text-center" style="clear: both; color: rgb(244, 67, 54);"></div>
