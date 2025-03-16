@@ -37,8 +37,8 @@ class UnhappyController extends Controller
 
 
 
-        // $admin = User::first();
-        $admin = User::pluck('email'); 
+        $admin = User::first();
+        
 
         if ($admin) {
             $adminEmail = $admin->email;

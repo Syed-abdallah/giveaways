@@ -54,8 +54,8 @@ class HappyController extends Controller
 
     // Save order to database
     $order->save();
-    // $admin = User::first();
-    $admin = User::pluck('email'); 
+    $admin = User::first();
+    
 
     if ($admin) {
         $adminEmail = $admin->email;
