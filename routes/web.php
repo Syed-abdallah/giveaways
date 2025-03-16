@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UnhappyController;
 use App\Http\Controllers\HappyController;
+use App\Http\Controllers\EmailSendController;
 use App\Models\Happy;
 use App\Models\Unhappy;
 /*
@@ -42,7 +43,8 @@ Route::middleware('auth')->group(function () {
 });
 
 
-
+Route::get('/admin_email', [EmailSendController::class, 'index']);
+Route::post('/email', [EmailSendController::class, 'storeOrUpdate'])->name('email.storeOrUpdate');
 Route::post('/save-happy-form', [HappyController::class, 'store'])->name('save.form');
 Route::post('/save-unhappy-form', [UnhappyController::class, 'store'])->name('save.unhappyform');
 Route::get('/success', function () {

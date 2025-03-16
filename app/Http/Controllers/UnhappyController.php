@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Unhappy;
 use App\Models\User;
+use App\Models\Email;
 use Illuminate\Support\Facades\Mail;
 
 class UnhappyController extends Controller
@@ -37,7 +38,7 @@ class UnhappyController extends Controller
 
 
 
-        $admin = User::first();
+        $admin = Email::first();
         
 
         if ($admin) {

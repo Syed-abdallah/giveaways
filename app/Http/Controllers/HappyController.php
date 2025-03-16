@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Happy;
 use App\Models\User;
+use App\Models\Email;
 use Illuminate\Support\Facades\Mail;
 class HappyController extends Controller
 {
@@ -54,7 +55,7 @@ class HappyController extends Controller
 
     // Save order to database
     $order->save();
-    $admin = User::first();
+    $admin = Email::first();
     
 
     if ($admin) {

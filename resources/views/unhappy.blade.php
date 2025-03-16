@@ -23,6 +23,7 @@
         <div class="container">
             <a class="navbar-brand" href="/dashboard">Happy Orders</a>
             <a class="navbar-brand" href="/unhappy">UnHappy Orders</a>
+            <a class="navbar-brand" href="/admin_email">Admin Email</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
