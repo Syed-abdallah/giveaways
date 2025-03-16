@@ -42,7 +42,7 @@
     <!-- Email Update Section -->
     <div class="container py-5">
         <div class="card p-4 shadow-lg">
-            <h2 class="text-center mb-4">Update Your Email</h2>
+            <h2 class="text-center mb-4">Your Email</h2>
 
             @if(session('success'))
                 <p class="alert alert-success">{{ session('success') }}</p>
