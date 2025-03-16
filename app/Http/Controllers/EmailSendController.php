@@ -12,15 +12,21 @@ class EmailSendController extends Controller
         return view('email_form', compact('email'));
     }
 
+ 
     public function storeOrUpdate(Request $request)
-    {
-        $request->validate([
-            'email' => 'required|email|unique:emails,email,1,id', // Unique but allows updating the first row
-        ]);
+{
+    $request->validate([
+        'email' => 'required|email|unique:emails,email,1,id', // Ensure only one email exists
+    ]);
 
-        Email::updateOrCreate(['id' => 1], ['email' => $request->email]); // Only update first row
+    // Update if exists, otherwise create a new email with id = 1
+    Email::updateOrCreate(
+        ['id' => 1], // Find row with id = 1
+        ['email' => $request->email] // Update email field
+    );
 
-        return redirect()->back()->with('success', 'Email updated successfully!');
-    }
+    return redirect()->back()->with('success', 'Email updated successfully!');
+}
+
 }
 
