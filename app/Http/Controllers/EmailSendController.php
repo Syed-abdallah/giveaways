@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class emailSendController extends Controller
+use App\Models\Email;
+class EmailSendController extends Controller
 {
     public function index()
     {
