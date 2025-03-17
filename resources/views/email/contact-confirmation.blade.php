@@ -52,16 +52,20 @@
 <body>
     <div class="container">
         <h2>🎉 Hello, {{ $order->name }}!</h2>
-        <p>Thank you for placing an order with us. Here are your order details:</p>
+        <p>Thank you for review. Here are your order details:</p>
 
         <div class="order-details">
             @if($order->amazon_id)
                 <p><strong>🆔 Amazon ID:</strong> {{ $order->amazon_id }}</p>
             @endif
+      
             
             <p><strong>📧 Email:</strong> {{ $order->email }}</p>
             @if($order->option)
                 <p><strong>🎉 Option:</strong> {{ $order->option }}</p>
+            @endif
+            @if($order->option)
+                <p><strong>🎉 Option:</strong> {{ $order2->option }}</p>
             @endif
             @if($order->shipping_address)
             <p><strong>📍 Shipping Address:</strong> {{ $order->shipping_address }}</p>
