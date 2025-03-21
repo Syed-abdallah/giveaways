@@ -107,11 +107,9 @@
                             <th>Email</th>
                             <th>Amazon Name</th>
                             <th>Reason</th>
-
-
+                            <th>Shipping Address</th>
                             <th>Option</th>
                             <th>Second Option</th>
-                            <th>Shipping Address</th>
                             <th>Date</th>
                             <th>following</th>
                         </tr>
@@ -125,10 +123,10 @@
                                 <td>{{ $order->name }}</td>
                                 <td>{!! nl2br(e($order->reason)) !!}</td>
 
+                                <td>{{ $order->shipping_address }}</td>
 
                                 <td>{{ $order->option }}</td>
                                 <td>{{ $order->option2 }}</td>
-                                <td>{{ $order->shipping_address }}</td>
                                 <td>{{ \Carbon\Carbon::parse($order->created_at)->format('Y-m-d') }}</td>
                                 {{-- <td>
                                     <select class="form-select update-following" data-order-id="{{ $order->id }}">
