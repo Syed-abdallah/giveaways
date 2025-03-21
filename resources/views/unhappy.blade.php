@@ -103,14 +103,10 @@
                         @foreach ($unhappy as $key => $order)
                             <tr>
                                 <td>{{ $key + 1 }}</td>
-                                @if ($order->amazon_id)
-                                    <td>{{ $order->amazon_id }}</td>
-                                @else
-                                    <td>No id</td>
-                                @endif
+                                <td>{{ $order->amazon_id ?? 'No ID' }}</td> 
                                 <td>{{ $order->email }}</td>
                                 <td>{{ $order->name }}</td>
-                                <td>{{ $order->reason }}</td>
+                                <td>{!! nl2br(e($order->reason)) !!}</td>
                                 <td>{{ $order->option }}</td>
                                 <td>{{ $order->option2 }}</td>
                                 <td>{{ $order->shipping_address }}</td>
