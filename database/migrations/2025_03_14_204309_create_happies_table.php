@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('options');
             $table->text('shipping_address');
             $table->string('image_path');
+            $table->string('following')->nullable();
             $table->timestamps();
         });
     }

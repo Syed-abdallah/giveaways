@@ -78,4 +78,26 @@ class HappyController extends Controller
 
      return redirect('/success')->with('success', 'Order saved successfully.');
 }
+
+
+    
+public function updateFollowing(Request $request)
+{
+    $request->validate([
+        'order_id' => 'required|integer',
+        'following' => 'required|string'
+    ]);
+
+    $order = Happy::find($request->order_id);
+    if (!$order) {
+        return response()->json(['success' => false, 'message' => 'Order not found'], 404);
+    }
+
+    $order->following = $request->following;
+    if ($order->save()) {
+        return response()->json(['success' => true, 'message' => 'Following updated successfully']);
+    } else {
+        return response()->json(['success' => false, 'message' => 'Failed to update following'], 500);
+    }
+}
 }

@@ -51,5 +51,6 @@ Route::get('/success', function () {
 });
 
 Route::post('/update-following', [UnhappyController::class, 'updateFollowing'])->name('update-following');
+Route::post('/update-following-happy', [HappyController::class, 'updateFollowing'])->name('update-following-happy');
 
 require __DIR__.'/auth.php';
