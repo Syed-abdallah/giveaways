@@ -92,9 +92,9 @@
                             <th>Order ID</th>
                             <th>Email</th>
                             <th>Amazon Name</th>
+                            <th>Reason</th>
                             <th>Option</th>
                             <th>Second Option</th>
-                            <th>Reason</th>
                             <th>Shipping Address</th>
                             <th>Date</th>
                         </tr>
@@ -110,9 +110,9 @@
                                 @endif
                                 <td>{{ $order->email }}</td>
                                 <td>{{ $order->name }}</td>
+                                <td>{{ $order->reason }}</td>
                                 <td>{{ $order->option }}</td>
                                 <td>{{ $order->option2 }}</td>
-                                <td>{{ $order->reason }}</td>
                                 <td>{{ $order->shipping_address }}</td>
                                 <td>{{ \Carbon\Carbon::parse($order->created_at)->format('Y-m-d') }}</td>
 
