@@ -93,6 +93,9 @@
                             <th>Email</th>
                             <th>Amazon Name</th>
                             <th>Reason</th>
+                            <th>test1</th>
+                            <th>test2</th>
+                            
                             <th>Option</th>
                             <th>Second Option</th>
                             <th>Shipping Address</th>
@@ -107,6 +110,8 @@
                                 <td>{{ $order->email }}</td>
                                 <td>{{ $order->name }}</td>
                                 <td>{!! nl2br(e($order->reason)) !!}</td>
+                                <td>test1</td>
+                                <td>test2</td>
                                 <td>{{ $order->option }}</td>
                                 <td>{{ $order->option2 }}</td>
                                 <td>{{ $order->shipping_address }}</td>
