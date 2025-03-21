@@ -121,7 +121,7 @@
                                 <td>{{ $order->amazon_id ?? 'No ID' }}</td>
                                 <td>{{ $order->email }}</td>
                                 <td>{{ $order->name }}</td>
-                                <td>{{($order->reason))}}</td>
+                                <td>{{($order->reason)}}</td>
 
                                 <td>{{ $order->shipping_address }}</td>
 
