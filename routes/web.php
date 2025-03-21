@@ -25,13 +25,13 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     $happy = Happy::latest()->get(); // Fetch all orders (latest first)
-    dd($happy);
+    // dd($happy);
     return view('dashboard', compact('happy'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/unhappy', function () {
     $unhappy = Unhappy::latest()->get(); // Fetch all orders (latest first)
-    dd($unhappy);
+    // dd($unhappy);
     return view('unhappy', compact('unhappy'));
 })->middleware(['auth', 'verified'])->name('unhappy');
 
