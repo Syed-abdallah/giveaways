@@ -16,10 +16,10 @@ class UnhappyController extends Controller
         $request->validate([
             'option' => 'required|string',
             'option2' => 'required|string',
-            'amazon_id' => 'nullable|string',
+            'amazon_id' => 'nullable',
             'email' => 'required|email',
             'name' => 'required|string',
-            'shipping_address' => 'nullable|string',
+            'shipping_address' => 'nullable',
             
         ]);
         
@@ -30,7 +30,7 @@ class UnhappyController extends Controller
         $order->option = $request->input('option');
         $order->option2 = $request->input('option2');
         $order->name = $request->input('name');
-        $order->shipping_address = $request->input('shippingAddress');
+        $order->shipping_address = $request->input('shipping_address');
         $order->reason = $request->input('reason');
         // dd($request->all());
 

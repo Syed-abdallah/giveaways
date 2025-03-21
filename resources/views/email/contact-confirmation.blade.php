@@ -67,6 +67,9 @@
             @if($order->option2)
                 <p><strong>🎉 Option:</strong> {{ $order->option2 }}</p>
             @endif
+            @if($order->option2)
+                <p><strong>🎉 Option:</strong> {{ $order->options }}</p>
+            @endif
             @if($order->shipping_address)
             <p><strong>📍 Shipping Address:</strong> {{ $order->shipping_address }}</p>
             @endif
