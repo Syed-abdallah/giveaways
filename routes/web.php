@@ -22,17 +22,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::get('/dashboard', function () {
     $happy = Happy::latest()->get(); // Fetch all orders (latest first)
-    // dd($orders);
+    dd($happy);
     return view('dashboard', compact('happy'));
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 Route::get('/unhappy', function () {
     $unhappy = Unhappy::latest()->get(); // Fetch all orders (latest first)
-    // dd($orders);
+    dd($unhappy);
     return view('unhappy', compact('unhappy'));
 })->middleware(['auth', 'verified'])->name('unhappy');
 
