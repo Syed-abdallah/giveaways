@@ -130,7 +130,7 @@
                                 <td>{{ $order->option2 }}</td>
                                 <td>{{ $order->shipping_address }}</td>
                                 <td>{{ \Carbon\Carbon::parse($order->created_at)->format('Y-m-d') }}</td>
-                                <td>
+                                {{-- <td>
                                     <select class="form-select update-following" data-order-id="{{ $order->id }}">
                                         <option value="" disabled>Select Option</option>
                                         <option value="Replacement sent"
@@ -145,7 +145,25 @@
                                             {{ $order->following == '$10 Amazon Gift Card sent' ? 'selected' : '' }}>
                                             $10 Amazon Gift Card sent</option>
                                     </select>
+                                </td> --}}
+                                <td>
+                                    <select class="form-select update-following" data-order-id="{{ $order->id }}">
+                                        <option value="" disabled {{ is_null($order->following) ? 'selected' : '' }}>Select Option</option>
+                                        <option value="Replacement sent" {{ $order->following == 'Replacement sent' ? 'selected' : '' }}>
+                                            Replacement sent
+                                        </option>
+                                        <option value="Full refunded" {{ $order->following == 'Full refunded' ? 'selected' : '' }}>
+                                            Full refunded
+                                        </option>
+                                        <option value="Other" {{ $order->following == 'Other' ? 'selected' : '' }}>
+                                            Other
+                                        </option>
+                                        <option value="$10 Amazon Gift Card sent" {{ $order->following == '$10 Amazon Gift Card sent' ? 'selected' : '' }}>
+                                            $10 Amazon Gift Card sent
+                                        </option>
+                                    </select>
                                 </td>
+                                
                             </tr>
                         @endforeach
                     </tbody>
