@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orders List</title>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap & DataTables CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
@@ -20,6 +20,20 @@
 </head>
 
 <body>
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 1050">
+        <div id="successToast" class="toast align-items-center text-white bg-success border-0" role="alert"
+            aria-live="polite" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Updated Successfully!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+            <!-- Timer Line -->
+            <div class="toast-timer bg-white" style="height: 3px; width: 100%;"></div>
+        </div>
+    </div>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -93,30 +107,45 @@
                             <th>Email</th>
                             <th>Amazon Name</th>
                             <th>Reason</th>
-                            <th>test1</th>
-                            <th>test2</th>
-                            
+
+
                             <th>Option</th>
                             <th>Second Option</th>
                             <th>Shipping Address</th>
                             <th>Date</th>
+                            <th>following</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($unhappy as $key => $order)
                             <tr>
                                 <td>{{ $key + 1 }}</td>
-                                <td>{{ $order->amazon_id ?? 'No ID' }}</td> 
+                                <td>{{ $order->amazon_id ?? 'No ID' }}</td>
                                 <td>{{ $order->email }}</td>
                                 <td>{{ $order->name }}</td>
                                 <td>{!! nl2br(e($order->reason)) !!}</td>
-                                <td>test1</td>
-                                <td>test2</td>
+
+
                                 <td>{{ $order->option }}</td>
                                 <td>{{ $order->option2 }}</td>
                                 <td>{{ $order->shipping_address }}</td>
                                 <td>{{ \Carbon\Carbon::parse($order->created_at)->format('Y-m-d') }}</td>
-
+                                <td>
+                                    <select class="form-select update-following" data-order-id="{{ $order->id }}">
+                                        <option value="" disabled>Select Option</option>
+                                        <option value="Replacement sent"
+                                            {{ $order->following == 'Replacement sent' ? 'selected' : '' }}>Replacement
+                                            sent</option>
+                                        <option value="Full refunded"
+                                            {{ $order->following == 'Full refunded' ? 'selected' : '' }}>Full refunded
+                                        </option>
+                                        <option value="Other" {{ $order->following == 'Other' ? 'selected' : '' }}>
+                                            Other</option>
+                                        <option value="$10 Amazon Gift Card sent"
+                                            {{ $order->following == '$10 Amazon Gift Card sent' ? 'selected' : '' }}>
+                                            $10 Amazon Gift Card sent</option>
+                                    </select>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -145,16 +174,21 @@
                     text: 'Export to Excel',
                     className: 'btn btn-success',
                     exportOptions: {
-                        columns: ':visible',
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], // Include all columns
                         format: {
                             body: function(data, row, column, node) {
                                 if (column === 8) { // Date column index
-                                    return data.trim(); // Ensure the format remains unchanged
+                                    return data.trim(); // Ensure date format remains unchanged
+                                }
+                                if (column === 9) { // Following column index
+                                    return $(node).find("option:selected")
+                                .text(); // Get the selected text from the dropdown
                                 }
                                 return data;
                             }
                         }
                     }
+
                 }]
 
             });
@@ -187,11 +221,60 @@
 
 
 
-              // Reset filter
-              $('#resetBtn').on('click', function() {
+            // Reset filter
+            $('#resetBtn').on('click', function() {
                 $('#startDate').val('');
                 $('#endDate').val('');
                 table.search('').columns().search('').draw();
+            });
+        });
+
+
+
+
+
+
+
+
+
+
+
+        $(document).ready(function() {
+            $(".update-following").change(function() {
+                var orderId = $(this).data("order-id");
+                var selectedOption = $(this).val();
+
+                $.ajax({
+                    url: "{{ route('update-following') }}",
+                    type: "POST",
+                    data: {
+                        order_id: orderId,
+                        following: selectedOption,
+                        _token: $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            var toastElement = new bootstrap.Toast(document.getElementById(
+                                "successToast"));
+                            $(".toast-body").text(response.message);
+                            toastElement.show();
+
+                            $(".toast-timer").css({
+                                width: "100%"
+                            }).animate({
+                                width: "0%"
+                            }, 3000, function() {
+                                toastElement.hide();
+                            });
+                        } else {
+                            alert("Update failed. Try again.");
+                        }
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText);
+                        alert("Error updating. Please check the console.");
+                    }
+                });
             });
         });
     </script>

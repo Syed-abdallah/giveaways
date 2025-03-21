@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('name');
             $table->text('shipping_address')->nullable();
             $table->text('reason')->nullable();
+            $table->string('following')->nullable();
+
             $table->timestamps();
         });
     }

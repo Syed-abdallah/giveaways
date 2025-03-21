@@ -49,4 +49,7 @@ Route::post('/save-unhappy-form', [UnhappyController::class, 'store'])->name('sa
 Route::get('/success', function () {
     return view('success');
 });
+
+Route::post('/update-following', [UnhappyController::class, 'updateFollowing'])->name('update-following');
+
 require __DIR__.'/auth.php';

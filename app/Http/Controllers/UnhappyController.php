@@ -20,9 +20,8 @@ class UnhappyController extends Controller
             'email' => 'required|email',
             'name' => 'required|string',
             'shipping_address' => 'nullable',
-            
         ]);
-        
+
         $order = new Unhappy();
         $order->amazon_id = $request->input('amazon_id');
         $order->noid = $request->input('noid');
@@ -36,30 +35,50 @@ class UnhappyController extends Controller
 
         $order->save();
 
-
-
         $admin = Email::first();
-        
 
         if ($admin) {
             $adminEmail = $admin->email;
         } else {
-           
         }
 
-   Mail::send('email.admin-notification', [
-       'order' => $order,
-   ], function ($message) use ($adminEmail) {
-       $message->to($adminEmail)->subject('New Review Received');
-   });
+        Mail::send(
+            'email.admin-notification',
+            [
+                'order' => $order,
+            ],
+            function ($message) use ($adminEmail) {
+                $message->to($adminEmail)->subject('New Review Received');
+            },
+        );
 
+        Mail::send('email.contact-confirmation', ['order' => $order], function ($message) use ($request) {
+            $message->to($request->email)->subject('Review Confirmation');
+        });
 
-   Mail::send('email.contact-confirmation', ['order' => $order], function ($message) use ($request) {
-       $message->to($request->email)->subject('Review Confirmation');
-   });
-
-
-
-   return redirect('/success')->with('success', 'Order saved successfully.');
+        return redirect('/success')->with('success', 'Order saved successfully.');
     }
+
+
+    
+    public function updateFollowing(Request $request)
+    {
+        $request->validate([
+            'order_id' => 'required|integer',
+            'following' => 'required|string'
+        ]);
+
+        $order = Unhappy::find($request->order_id);
+        if (!$order) {
+            return response()->json(['success' => false, 'message' => 'Order not found'], 404);
+        }
+
+        $order->following = $request->following;
+        if ($order->save()) {
+            return response()->json(['success' => true, 'message' => 'Following updated successfully']);
+        } else {
+            return response()->json(['success' => false, 'message' => 'Failed to update following'], 500);
+        }
+    }
+    
 }
