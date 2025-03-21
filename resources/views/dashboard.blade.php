@@ -321,8 +321,8 @@
                             <th>Amazon Name</th>
                             <th>Option</th>
                             <th>Shipping Address</th>
-                            <th>Image</th>
                             <th>Date</th>
+                            <th>Image</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -334,6 +334,8 @@
                                 <td>{{ $order->name }}</td>
                                 <td>{{ $order->options }}</td>
                                 <td>{{ $order->shipping_address }}</td>
+                                <td>{{ \Carbon\Carbon::parse($order->created_at)->format('Y-m-d') }}</td>
+
                                 <td>
                                     @if ($order->image_path)
                                         <img src="{{ asset('/image/happyorder/' . $order->image_path) }}" 
@@ -343,7 +345,6 @@
                                         No Image
                                     @endif
                                 </td>
-                                <td>{{ \Carbon\Carbon::parse($order->created_at)->format('Y-m-d') }}</td>
                             </tr>
                         @endforeach
                     </tbody>
