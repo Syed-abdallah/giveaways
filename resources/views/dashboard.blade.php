@@ -212,56 +212,106 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        // $(document).ready(function() {
+        //     var table = $('#ordersTable').DataTable({
+        //         dom: 'Bfrtip',
+        //         buttons: [{
+        //             extend: 'excelHtml5',
+        //             text: 'Export to Excel',
+        //             className: 'btn btn-success',
+        //             exportOptions: {
+        //                 columns: [0, 1, 2, 3, 4, 5, 7, 8], // Excludes unwanted columns
+        //                 format: {
+        //                     body: function(data, row, column, node) {
+        //                         if (column ===
+        //                             8) { // Assuming 8th column is the "Following" option
+        //                             return $(node).find("select").val() ||
+        //                             "Select Option"; // Get selected value
+        //                         }
+        //                         return column === 7 ? data.trim() :
+        //                         data; // Ensure correct date format
+        //                     }
+        //                 }
+        //             }
+
+        //         }]
+        //     });
+
+        //     // Filter function
+        //     $('#filterBtn').on('click', function() {
+        //         var startDate = $('#startDate').val();
+        //         var endDate = $('#endDate').val();
+
+        //         $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+        //             var orderDate = data[7]; // Column index for Date
+        //             var orderDateObj = new Date(orderDate);
+        //             var start = startDate ? new Date(startDate) : null;
+        //             var end = endDate ? new Date(endDate) : null;
+
+        //             return (!start || orderDateObj >= start) && (!end || orderDateObj <= end);
+        //         });
+
+        //         table.draw();
+        //         $.fn.dataTable.ext.search.pop();
+        //     });
+
+        //     // Reset filter
+        //     $('#resetBtn').on('click', function() {
+        //         $('#startDate').val('');
+        //         $('#endDate').val('');
+        //         table.search('').columns().search('').draw();
+        //     });
+        // });
+
+
         $(document).ready(function() {
-            var table = $('#ordersTable').DataTable({
-                dom: 'Bfrtip',
-                buttons: [{
-                    extend: 'excelHtml5',
-                    text: 'Export to Excel',
-                    className: 'btn btn-success',
-                    exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 7, 8], // Excludes unwanted columns
-                        format: {
-                            body: function(data, row, column, node) {
-                                if (column ===
-                                    8) { // Assuming 8th column is the "Following" option
-                                    return $(node).find("select").val() ||
-                                    "Select Option"; // Get selected value
-                                }
-                                return column === 7 ? data.trim() :
-                                data; // Ensure correct date format
-                            }
+    var table = $('#ordersTable').DataTable({
+        dom: 'Bfrtip',
+        buttons: [{
+            extend: 'excelHtml5',
+            text: 'Export to Excel',
+            className: 'btn btn-success',
+            exportOptions: {
+                columns: [0, 1, 2, 3, 4, 5, 6, 7], // Excluding images (index 8)
+                format: {
+                    body: function(data, row, column, node) {
+                        if (column === 7) { // Column index for the "Following" dropdown
+                            return $(node).find("select option:selected").text().trim() || "Select Option";
                         }
+                        return data;
                     }
+                }
+            }
+        }]
+    });
 
-                }]
-            });
+    // Filter function
+    $('#filterBtn').on('click', function() {
+        var startDate = $('#startDate').val();
+        var endDate = $('#endDate').val();
 
-            // Filter function
-            $('#filterBtn').on('click', function() {
-                var startDate = $('#startDate').val();
-                var endDate = $('#endDate').val();
+        $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+            var orderDate = data[6]; // Column index for Date
+            var orderDateObj = new Date(orderDate);
+            var start = startDate ? new Date(startDate) : null;
+            var end = endDate ? new Date(endDate) : null;
 
-                $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
-                    var orderDate = data[7]; // Column index for Date
-                    var orderDateObj = new Date(orderDate);
-                    var start = startDate ? new Date(startDate) : null;
-                    var end = endDate ? new Date(endDate) : null;
-
-                    return (!start || orderDateObj >= start) && (!end || orderDateObj <= end);
-                });
-
-                table.draw();
-                $.fn.dataTable.ext.search.pop();
-            });
-
-            // Reset filter
-            $('#resetBtn').on('click', function() {
-                $('#startDate').val('');
-                $('#endDate').val('');
-                table.search('').columns().search('').draw();
-            });
+            return (!start || orderDateObj >= start) && (!end || orderDateObj <= end);
         });
+
+        table.draw();
+        $.fn.dataTable.ext.search.pop();
+    });
+
+    // Reset filter
+    $('#resetBtn').on('click', function() {
+        $('#startDate').val('');
+        $('#endDate').val('');
+        table.search('').columns().search('').draw();
+    });
+});
+
+
 
         function zoomImage(img) {
             $('#zoomed-image').attr('src', img.src);
