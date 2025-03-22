@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/happy', function () {
+Route::get('/dashboard', function () {
     $happy = Happy::latest()->get(); // Fetch all orders (latest first)
     // dd($happy);
     return view('dashboard', compact('happy'));
