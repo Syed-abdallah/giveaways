@@ -53,7 +53,7 @@ class UnhappyController extends Controller
         );
 
         Mail::send('email.unhappy', ['order' => $order], function ($message) use ($request) {
-            $message->to($request->email)->subject('Review Confirmation');
+            $message->to($request->email)->subject('Confirmation for your feedback and appology for the Inconvenience');
         });
 
         return redirect('/success')->with('success', 'Order saved successfully.');
