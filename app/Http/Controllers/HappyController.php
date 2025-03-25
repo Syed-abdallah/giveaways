@@ -71,7 +71,7 @@ class HappyController extends Controller
      });
  
      // Send confirmation email to user
-     Mail::send('email.contact-confirmation', ['order' => $order], function ($message) use ($request) {
+     Mail::send('email.happy', ['order' => $order], function ($message) use ($request) {
          $message->to($request->email)->subject('Review Confirmation');
      });
 

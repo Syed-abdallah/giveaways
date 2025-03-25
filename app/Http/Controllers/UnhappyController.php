@@ -52,7 +52,7 @@ class UnhappyController extends Controller
             },
         );
 
-        Mail::send('email.contact-confirmation', ['order' => $order], function ($message) use ($request) {
+        Mail::send('email.unhappy', ['order' => $order], function ($message) use ($request) {
             $message->to($request->email)->subject('Review Confirmation');
         });
 
