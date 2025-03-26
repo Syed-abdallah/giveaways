@@ -90,7 +90,7 @@
     </div>
     <div class="container py-5">
         <div class="card p-4 shadow-lg">
-            <h2 class="text-center mb-4">Register</h2>
+            <h2 class="text-center mb-4">User Register</h2>
          
             
             @if(session('successuser'))
@@ -137,7 +137,7 @@
                 </div>
     
                 <div class="d-flex justify-content-between align-items-center">
-                    <a href="{{ route('login') }}" class="text-decoration-none">Already registered?</a>
+                    {{-- <a href="{{ route('login') }}" class="text-decoration-none">Already registered?</a> --}}
                     <button type="submit" class="btn btn-primary">Register</button>
                 </div>
             </form>
