@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Email;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class HappyController extends Controller
 {
