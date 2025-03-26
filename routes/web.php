@@ -21,7 +21,7 @@ use App\Models\Unhappy;
 
 Route::get('/', function () {
     $links = Review::first(); // Fetch the first review entry
-   $link = $links->link ?: "";
+    $link = $links ? $links->link : "";
     return view('welcome', compact( 'link'));
 });
 
