@@ -93,8 +93,8 @@
             <h2 class="text-center mb-4">Register the user</h2>
          
             
-            @if(session('links'))
-                <p class="alert alert-success">{{ session('links') }}</p>
+            @if(session('successuser'))
+                <p class="alert alert-success">{{ session('successuser') }}</p>
             @endif
 
             <form method="POST" action="{{ route('register') }}">

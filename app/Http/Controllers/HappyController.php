@@ -116,8 +116,8 @@ class HappyController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // return redirect()->back()->with('success', 'Registration successful! Please login to continue.');
-        return response()->json(['success' => true, 'message' => 'Registration successful! Please login to continue']);
+        return redirect()->back()->with('successuser', 'Registration successful! Please login to continue.');
+        // return response()->json(['success' => true, 'message' => 'Registration successful! Please login to continue']);
         // Auth::login($user);
 
         // return redirect(RouteServiceProvider::HOME);
