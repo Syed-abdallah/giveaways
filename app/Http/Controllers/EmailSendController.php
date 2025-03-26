@@ -10,7 +10,7 @@ class EmailSendController extends Controller
     public function index()
     {
         $email = Email::first(); // Get the first email
-        $link = Review::first(); 
+        $link = Review::first() ?: "";
         return view('email_form', compact('email', 'link'));
     }
 
