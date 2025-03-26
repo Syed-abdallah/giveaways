@@ -8,6 +8,8 @@ use App\Models\Happy;
 use App\Models\User;
 use App\Models\Email;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Hash;
+
 class HappyController extends Controller
 {
     public function store(Request $request)
