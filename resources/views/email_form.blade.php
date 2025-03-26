@@ -90,11 +90,8 @@
     </div>
     <div class="container py-5">
         <div class="card p-4 shadow-lg">
-            <h2 class="text-center mb-4">Review Section</h2>
-            <p class="text-muted " style="font-size: 16px; line-height: 1.6;">
-                This section allows you to update the review link where customers can leave their feedback. 
-                Please ensure the link is accurate to direct users to the correct review page.
-            </p>
+            <h2 class="text-center mb-4">Register the user</h2>
+         
             
             @if(session('links'))
                 <p class="alert alert-success">{{ session('links') }}</p>
