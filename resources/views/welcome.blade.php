@@ -616,9 +616,13 @@
                             us
                             a honest review on Amazon?</div>
                         <div class="row text-center mb-1 mb-sm-5">
-                            <a href="https://www.amazon.co.uk/review/create-review/?asin=B08WK68Y3V%3A5"
+                            {{-- <a href="https://www.amazon.co.uk/review/create-review/?asin=B08WK68Y3V%3A5"
                                 class="btn btn-primary col-8 offset-2 btn-reviews" target="_blank">Click to Give us a
-                                5-star</a>
+                                5-star</a> --}}
+                                <a href="{{ $link }}" class="btn btn-primary col-8 offset-2 btn-reviews" target="_blank" rel="noopener noreferrer">
+                                    Click to Give us a 5-star
+                                </a>
+                                
                         </div>
                         <div class="row bonus-info">
                             <div class="col-md-4 col-sm-12 text-center">

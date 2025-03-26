@@ -100,4 +100,6 @@ public function updateFollowing(Request $request)
         return response()->json(['success' => false, 'message' => 'Failed to update following'], 500);
     }
 }
+
+
 }

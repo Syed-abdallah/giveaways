@@ -6,6 +6,7 @@ use App\Http\Controllers\UnhappyController;
 use App\Http\Controllers\HappyController;
 use App\Http\Controllers\EmailSendController;
 use App\Models\Happy;
+use App\Models\Review;
 use App\Models\Unhappy;
 /*
 |--------------------------------------------------------------------------
@@ -19,15 +20,18 @@ use App\Models\Unhappy;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $links = Review::first(); // Fetch the first review entry
+   $link = $links->link;
+    return view('welcome', compact( 'link'));
 });
-
 
 Route::get('/dashboard', function () {
     $happy = Happy::latest()->get(); // Fetch all orders (latest first)
-    // dd($happy);
+ 
+
     return view('dashboard', compact('happy'));
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::get('/unhappy', function () {
     $unhappy = Unhappy::latest()->get(); // Fetch all orders (latest first)
@@ -42,8 +46,9 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/admin_email', [EmailSendController::class, 'index']);
+Route::get('/settings', [EmailSendController::class, 'index']);
 Route::post('/email', [EmailSendController::class, 'storeOrUpdate'])->name('email.storeOrUpdate');
+Route::post('/link', [EmailSendController::class, 'storeOrUpdateLink'])->name('review.storeOrUpdateLink');
 Route::post('/save-happy-form', [HappyController::class, 'store'])->name('save.form');
 Route::post('/save-unhappy-form', [UnhappyController::class, 'store'])->name('save.unhappyform');
 Route::get('/success', function () {

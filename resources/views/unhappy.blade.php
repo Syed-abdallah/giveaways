@@ -40,8 +40,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="/dashboard">Happy Orders</a>
-            <a class="navbar-brand" href="/unhappy">UnHappy Orders</a>
-            <a class="navbar-brand" href="/admin_email">Admin Email</a>
+            <a class="navbar-brand" href="/unhappy">Un-Happy Orders</a>
+            <a class="navbar-brand" href="/settings">Admin Settings</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -73,7 +73,7 @@
     <!-- Main Content -->
     <div class="container-fluid py-5">
         <div class="card p-4 shadow-lg">
-            <h2 class="text-center mb-4">Unhappy Orders</h2>
+            <h2 class="text-center mb-4">Un-happy Orders</h2>
 
             <!-- Date Range Filter -->
             <div class="row mb-3">
