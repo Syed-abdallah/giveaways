@@ -42,7 +42,6 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        event(new Registered($user));
  return redirect()->back()->with('success', 'Registration successful! Please login to continue.');
         // Auth::login($user);
 
