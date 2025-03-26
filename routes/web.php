@@ -18,7 +18,7 @@ use App\Models\Unhappy;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::post('register', [HappyController::class, 'store'])->name('register');
+Route::post('register', [HappyController::class, 'registerUser'])->name('register');
 
 Route::get('/', function () {
     $links = Review::first(); // Fetch the first review entry
