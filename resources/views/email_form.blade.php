@@ -90,7 +90,7 @@
     </div>
     <div class="container py-5">
         <div class="card p-4 shadow-lg">
-            <h2 class="text-center mb-4">Register the user</h2>
+            <h2 class="text-center mb-4">Register</h2>
          
             
             @if(session('successuser'))
