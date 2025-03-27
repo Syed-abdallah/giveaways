@@ -189,8 +189,10 @@
                                         <label for="inputorderID" class="col-sm-3 col-form-label  text-right">Amazon
                                             Order ID</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control order" id="inputorderID01"
-                                                placeholder="" value="" name="amazon_id">
+                                            <input type="text" class="form-control order order-input" id="inputorderID01"
+                                            placeholder="xxx-xxxxxxx-xxxxxxxx" value="" name="amazon_id">
+                                          
+                                                
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -292,8 +294,8 @@
                                         <label for="inputorderID" class="col-sm-3 col-form-label  text-right">Amazon
                                             Order ID</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control order" id="inputorderID02"
-                                                placeholder="" value="" name="amazon_id">
+                                            <input type="text" class="form-control order order-input" id="inputorderID02"
+                                                 value="" name="amazon_id" placeholder="xxx-xxxxxxx-xxxxxxxx">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -444,8 +446,8 @@
                                         <label for="inputorderID03" class="col-sm-3 col-form-label text-right">Amazon
                                             Order ID</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputorderID03"
-                                                name="amazon_id">
+                                            <input type="text" class="form-control order-input" id="inputorderID03"
+                                                name="amazon_id" placeholder="xxx-xxxxxxx-xxxxxxxx" >
                                         </div>
                                     </div>
 
@@ -778,7 +780,7 @@
 
                                         <div class="col-sm-10">
 
-                                            <input type="text" class="form-control" name="order_id" required>
+                                            <input type="text" class="form-control order-input" name="order_id" required placeholder="xxx-xxxxxxx-xxxxxxxx">
 
 
                                         </div>
@@ -1130,5 +1132,29 @@
     </style>
 
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".order-input").forEach(function (input) {
+            input.addEventListener("input", function () {
+                let value = this.value.replace(/\D/g, ""); // Remove non-numeric characters
+                let formattedValue = "";
+
+                if (value.length > 3) {
+                    formattedValue = value.slice(0, 3) + "-";
+                    if (value.length > 10) {
+                        formattedValue += value.slice(3, 10) + "-";
+                        formattedValue += value.slice(10, 18); // Limit total length to 19 (including hyphens)
+                    } else {
+                        formattedValue += value.slice(3);
+                    }
+                } else {
+                    formattedValue = value;
+                }
+
+                this.value = formattedValue;
+            });
+        });
+    });
+</script>
 
 </body>
