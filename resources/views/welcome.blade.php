@@ -746,9 +746,11 @@
                                             star review</span>&nbsp;on Amazon!
                                     </p>
                                     <p class="reviewCardStyle"
-                                        style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:0px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
-                                        <span style="box-sizing:border-box;font-weight:bolder">IMPORTANT: </span><span>After leaving your review, please make sure to screenshot it and return here to upload it.</span>
-                                    </p>
+                                    style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:0px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
+                                    <span style="box-sizing:border-box;font-weight:bolder;margin-top:30px; display: inline-block;">IMPORTANT: </span>
+                                    <span>After leaving your review, please make sure to screenshot it and return here to upload it.</span>
+                                </p>
+                                
                                     <p>
                                         <br>
                                     </p>
