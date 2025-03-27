@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <div class="show show2 hide">
-                        <h1 class="text-center section-title mb-3 mb-sm-5 mt-3 mt-sm-5">Claim Your Benefit Now!!!</h1>
+                        <h1 class="text-center section-title mb-3 mb-sm-5 mt-3 mt-sm-5">Claim Your Benefit Now!</h1>
 
                         <div class="text-body text-center mb-3 mb-sm-5">
 
@@ -153,7 +153,7 @@
                         </div>
                     </div>
                     <div class="show show21 hide">
-                        <h1 class="text-center section-title mb-3 mb-sm-5 mt-3 mt-sm-5">Claim Your Benefit Now!!!</h1>
+                        <h1 class="text-center section-title mb-3 mb-sm-5 mt-3 mt-sm-5">Claim Your Benefit Now!</h1>
 
                         <div class="text-body text-center mb-3 mb-sm-5">
 
@@ -641,7 +641,7 @@
                     </div>
 
                     <div class="show show3 hide">
-                        <h1 class="text-center section-title mb-3 mb-sm-5 mt-3 mt-sm-5">Claim Your Benefit Now!!!</h1>
+                        <h1 class="text-center section-title mb-3 mb-sm-5 mt-3 mt-sm-5">Claim Your Benefit Now!</h1>
                         <div class="text-body text-center mb-3 mb-sm-5">
                             <div class="icon icon-happy mb-3"></div>
                             <h4 class="mb-3" style="font-size: 20px;">We’re so happy that you’re happy.</h4>
@@ -693,7 +693,7 @@
                                 }
                             }
                         </style>
-                        <h1 class="text-center section-title mb-3 mb-sm-5 mt-3 mt-sm-5">Claim Your Benefit Now!!!</h1>
+                        <h1 class="text-center section-title mb-3 mb-sm-5 mt-3 mt-sm-5">Claim Your Benefit Now!</h1>
 
                         <div class="text-body text-center mb-3 mb-sm-5">
 
