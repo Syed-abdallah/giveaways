@@ -762,13 +762,23 @@
 
                                         <div class="uploader">
 
-                                            <input type="text" id="filename" readonly="">
+                                            {{-- <input type="text" id="filename" readonly="">
 
-                                            <img src="image/dp.png" alt="" style="width:45px;">
+                                            <img src="image/dp.png" alt="" >
 
                                             <input type="file" name="pic" size="670" id="file"
-                                                required>
+                                                required> --}}
 
+
+
+                                                @include('filebutton')
+
+
+
+
+
+
+                                                
                                         </div>
                                         {{-- <div class="file_img"><a
                                                 href="Uploads/images/2021/09/30/1632986580_classify_img.png"><img
