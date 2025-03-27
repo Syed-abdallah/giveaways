@@ -216,7 +216,7 @@
                                             <input type="email" class="form-control email" id="inputEmail01"
                                                 placeholder="" inputmode="email" value="" name="email"
                                                 required>
-                                                <span style="font-size: 13px; font-weight: bold; color: #41474d; margin-left: 30px; margin-top: 1px; display: block;">
+                                                <span class="animated-text">
                                                     We respect your privacy. Your information will not be shared.
                                                 </span>
                                         </div>
@@ -328,7 +328,7 @@
                                             <input type="email" class="form-control email" id="inputEmail02"
                                                 placeholder="" inputmode="email" value="" name="email"
                                                 required>
-                                                <span style="font-size: 13px; font-weight: bold; color: #41474d; margin-left: 30px; margin-top: 1px; display: block;">
+                                                <span class="animated-text">
                                                     We respect your privacy. Your information will not be shared.
                                                 </span>
                                         </div>
@@ -476,9 +476,31 @@
                                         <div class="col-sm-9">
                                             <input type="email" class="form-control" id="inputEmail03"
                                                 name="email" required>
-                                                <span style="font-size: 13px; font-weight: bold; color: #41474d; margin-left: 30px; margin-top: 1px; display: block;">
+                                                <span class="animated-text">
                                                     We respect your privacy. Your information will not be shared.
                                                 </span>
+                                                
+                                                <style>
+                                                .animated-text {
+                                                    font-size: 13px;
+                                                    font-weight: bold;
+                                                    background: linear-gradient(95deg, red, blue);
+                                                    background-size: 400% 100%;
+                                                    -webkit-background-clip: text;
+                                                    -webkit-text-fill-color: transparent;
+                                                    display: block;
+                                                    margin-left: 30px;
+                                                    margin-top: 5px;
+                                                    animation: gradientAnimation 4s infinite linear;
+                                                }
+                                                
+                                                @keyframes gradientAnimation {
+                                                    0% { background-position: 0% 45%; }
+                                                    50% { background-position: 50% 50%; }
+                                                    100% { background-position: 0% 50%; }
+                                                }
+                                                </style>
+                                                
                                         </div>
                                     </div>
 
@@ -568,7 +590,7 @@
                                                 <input type="email" class="form-control email" id="inputEmail05"
                                                     placeholder="" inputmode="email" value="" name="email"
                                                     required>
-                                                    <span style="font-size: 13px; font-weight: bold; color: #41474d; margin-left: 30px; margin-top: 1px; display: block;">
+                                                    <span class="animated-text">
                                                         We respect your privacy. Your information will not be shared.
                                                     </span>
                                             </div>
@@ -771,7 +793,7 @@
                                             <div class="col-sm-10">
                                                 <input type="email" class="form-control" name="email" id="email" required>
                                             
-                                                <span style="font-size: 13px; font-weight: bold; color: #41474d; margin-left: 30px; margin-top: 1px; display: block;">
+                                                <span class="animated-text">
                                                     We respect your privacy. Your information will not be shared.
                                                 </span>
                                             </div>
