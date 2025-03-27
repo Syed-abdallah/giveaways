@@ -57,7 +57,7 @@
         <p>If you have any additional questions or concerns in the meantime, please don’t hesitate to contact us. We truly value your business and are here to assist in any way we can.</p>
         <p class="thank-you">Thank you for your understanding, and we appreciate your continued trust in our products. 🙏</p>
         <p>Best regards,</p>
-        <p><strong>The Pet Lovers Giveaway Team After best regards.</strong></p>
+        <p><strong>The Pet Lovers Giveaway Team.</strong></p>
    
     </div>
 </body>
