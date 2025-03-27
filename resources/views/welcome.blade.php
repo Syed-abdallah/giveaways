@@ -54,6 +54,13 @@
                         <div class="w-100 mb-3 text-center">We want to ensure you're completely satisfied. Let us know how we can improve your experience.</div>
                         <div class="form-satisfy row">
                             <div class="col-md-6 col-sm-6 col-6">
+                                <label class="text-center happy radio card " style="height: 413px;">
+                                    <p class="icon icon-happy"></p>
+                                    <p>Yes, I’m happy!</p>
+                                    <input type="radio" id="happy" name="optionsRadios" value="happy" style="margin-top:48px">
+                                </label>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-6">
                                 <label class="text-center unhappy radio card">
                                     <p class="icon icon-sad"></p>
                                     <p>No, I’m not satisfied.</p>
@@ -61,13 +68,7 @@
                                     <input type="radio" id="unhappy" name="optionsRadios" value="unhappy">
                                 </label>
                             </div>
-                            <div class="col-md-6 col-sm-6 col-6">
-                                <label class="text-center happy radio card " style="height: 413px;">
-                                    <p class="icon icon-happy"></p>
-                                    <p>Yes, I’m happy!</p>
-                                    <input type="radio" id="happy" name="optionsRadios" value="happy" style="margin-top:48px">
-                                </label>
-                            </div>
+                          
                         </div>
                     </div>
                     <div class="show show2 hide">
@@ -757,7 +758,7 @@
                                     <br>
 
 
-                                    <div class="form-group row" style="justify-content: center;align-items: center;">
+                                    <div class="form-group row" ">
 
                                         <div class="uploader">
 
@@ -765,14 +766,14 @@
 
                                             <img src="image/dp.png" alt="" style="width:45px;">
 
-                                            <input type="file" name="pic" size="70" id="file"
+                                            <input type="file" name="pic" size="670" id="file"
                                                 required>
 
                                         </div>
-                                        <div class="file_img"><a
+                                        {{-- <div class="file_img"><a
                                                 href="Uploads/images/2021/09/30/1632986580_classify_img.png"><img
                                                     src="Uploads/images/2021/09/30/1632986580_classify_img.png"></a>
-                                        </div>
+                                        </div> --}}
 
                                     </div>
                                     
