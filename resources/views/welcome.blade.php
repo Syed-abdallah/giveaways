@@ -48,23 +48,24 @@
                         <h1 class="text-center section-title mb-3 mb-sm-5 mt-3 mt-sm-5">Claim Your Benefit Now!!!!</h1>
                         <div class="text-body text-center mb-5">
                             <h4 class="mb-3">Your Opinion Matters</h4>
-                            <p>Please take this simple survey and you will be entered to win a same product or a gift
-                                card.</p>
+                            <p>We value your feedback! Please take a moment to complete this simple survey, and you'll be entered to win a product like the one you purchased or a gift card!</p>
                         </div>
                         <div class="w-100 mb-3 text-center">Are you happy with your purchase ?</div>
+                        <div class="w-100 mb-3 text-center">We want to ensure you're completely satisfied. Let us know how we can improve your experience.</div>
                         <div class="form-satisfy row">
                             <div class="col-md-6 col-sm-6 col-6">
                                 <label class="text-center unhappy radio card">
                                     <p class="icon icon-sad"></p>
-                                    <p>Unhappy</p>
+                                    <p>No, I’m not satisfied.</p>
+                                    <p> (Let’s fix this together!)</p>
                                     <input type="radio" id="unhappy" name="optionsRadios" value="unhappy">
                                 </label>
                             </div>
                             <div class="col-md-6 col-sm-6 col-6">
                                 <label class="text-center happy radio card ">
                                     <p class="icon icon-happy"></p>
-                                    <p>Happy</p>
-                                    <input type="radio" id="happy" name="optionsRadios" value="happy">
+                                    <p>Yes, I’m happy!</p>
+                                    <input type="radio" id="happy" name="optionsRadios" value="happy" style="margin-top:48px">
                                 </label>
                             </div>
                         </div>
@@ -76,14 +77,11 @@
 
                             <div class="icon icon-sad mb-3"></div>
 
-                            <h4 class="mb-3" style="font-size: 20px;">We are so sorry to hear you are not satisfied.
-                                Let’s solve this
-
-                                now!</h4>
+                            <h4 class="mb-3" style="font-size: 20px;">We’re Sorry to Hear You’re Not Satisfied. Let’s Resolve This!</h4>
 
                         </div>
 
-                        <div class="w-100 mb-3 text-center">Why are you unhappy about this?</div>
+                        <div class="w-100 mb-3 text-center">Please let us know why you’re unhappy with your purchase</div>
 
                         <div class="sad-reason">
 
@@ -115,14 +113,14 @@
                             <div class="form-check row" id="">
                                 <input class="form-check-input reason-input" type="radio" name="unchoose1"
                                     value="Doesn’t work">
-                                <label class="form-check-label no-click " for="reason1">Doesn’t work</label>
+                                <label class="form-check-label no-click " for="reason1">Doesn't work as expected</label>
                             </div>
 
 
                             <div class="form-check row " id="put">
                                 <input class="form-check-input reason-input" type="radio" name="unchoose1"
                                     value="Others">
-                                <label class="form-check-label no-click" for="reason1">Others</label>
+                                <label class="form-check-label no-click" for="reason1">Other issues</label>
                             </div>
 
 
@@ -218,6 +216,9 @@
                                             <input type="email" class="form-control email" id="inputEmail01"
                                                 placeholder="" inputmode="email" value="" name="email"
                                                 required>
+                                                <span style="font-size: 13px; font-weight: bold; color: #41474d; margin-left: 30px; margin-top: 1px; display: block;">
+                                                    We respect your privacy. Your information will not be shared.
+                                                </span>
                                         </div>
                                     </div>
                                     <div class="text-center tshi" style="clear: both; color: rgb(244, 67, 54);">Please
@@ -327,6 +328,9 @@
                                             <input type="email" class="form-control email" id="inputEmail02"
                                                 placeholder="" inputmode="email" value="" name="email"
                                                 required>
+                                                <span style="font-size: 13px; font-weight: bold; color: #41474d; margin-left: 30px; margin-top: 1px; display: block;">
+                                                    We respect your privacy. Your information will not be shared.
+                                                </span>
                                         </div>
                                     </div>
                                     <div class="text-center tshi" style="clear: both; color: rgb(244, 67, 54);">Please
@@ -382,8 +386,7 @@
                             <div class="form-check row list">
                                 <input class="form-check-input" type="radio" id="solutions3" name="unchoose2"
                                     value="Get $10 Amazon Gift Card without refund.">
-                                <label class="form-check-label" for="solutions3">Get $10 Amazon Gift Card without
-                                    refund.</label>
+                                <label class="form-check-label" for="solutions3">Get a $10 Amazon Gift Card (no need to return the item)</label>
                             </div>
                             <div class="form-customerinfo card mb-5 list_in" style="display: none;">
                                 <p class="w-100 mb-4">Please tell us your order ID, we will solve your problem quickly!
@@ -473,6 +476,9 @@
                                         <div class="col-sm-9">
                                             <input type="email" class="form-control" id="inputEmail03"
                                                 name="email" required>
+                                                <span style="font-size: 13px; font-weight: bold; color: #41474d; margin-left: 30px; margin-top: 1px; display: block;">
+                                                    We respect your privacy. Your information will not be shared.
+                                                </span>
                                         </div>
                                     </div>
 
@@ -533,7 +539,7 @@
                             <div class="form-check row list" id="put">
                                 <input class="form-check-input" type="radio" id="solutions4" name="unchoose2"
                                     value="Others">
-                                <label class="form-check-label" for="solutions4">Others</label>
+                                <label class="form-check-label" for="solutions4">Other options (please specify)</label>
                             </div>
                             <div style="display: none;">
                                 <div class="form-customerinfo card mb-2">
@@ -562,6 +568,9 @@
                                                 <input type="email" class="form-control email" id="inputEmail05"
                                                     placeholder="" inputmode="email" value="" name="email"
                                                     required>
+                                                    <span style="font-size: 13px; font-weight: bold; color: #41474d; margin-left: 30px; margin-top: 1px; display: block;">
+                                                        We respect your privacy. Your information will not be shared.
+                                                    </span>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -612,9 +621,7 @@
                             <div class="icon icon-happy mb-3"></div>
                             <h4 class="mb-3" style="font-size: 20px;">We’re so happy that you’re happy.</h4>
                         </div>
-                        <div class="w-100 mb-3 text-center">We want to kindly ask - could you do us a favor and leave
-                            us
-                            a honest review on Amazon?</div>
+                        <div class="w-100 mb-3 text-center">We’d love to hear about your experience. Could you do us a favor and leave an honest review on Amazon? Your feedback means the world to us!</div>
                         <div class="row text-center mb-1 mb-sm-5">
                             {{-- <a href="https://www.amazon.co.uk/review/create-review/?asin=B08WK68Y3V%3A5"
                                 class="btn btn-primary col-8 offset-2 btn-reviews" target="_blank">Click to Give us a
@@ -628,10 +635,10 @@
                             <div class="col-md-4 col-sm-12 text-center">
                                 <span class="icon icon-bonus"></span>
                             </div>
-                            <div class="col-md-8 col-sm-12 align-self-center">As our sincere appreciation, we will send
+                            <div class="col-md-8 col-sm-12 align-self-center">As a token of our appreciation,we'll send
                                 you <span>the <span class="text-primary">Same Item</span> that you purchased</span> for
-                                free, or we will send you <span class="text-primary">a $15 Amazon gift
-                                    card.</span>&nbsp; </div>
+                                free, or <span class="text-primary">a $15 Amazon gift
+                                    card</span>&nbsp; <span>-your choice!<span> </div>
                         </div>
                         <div class="clearfix"></div>
                         <div class="row progress-control mt-3 mt-sm-5">
@@ -671,7 +678,7 @@
 
                         </div>
 
-                        <div class="w-100 mb-3 text-center">Which bonus would you like to choose?</div>
+                        <div class="w-100 mb-3 text-center">Thank you for being a valued customer! Which bonus would you like to choose?</div>
 
 
 
@@ -693,7 +700,7 @@
                                 <div class="col-md-6 col-sm-6 col-6">
                                     <label class="text-center radio card ">
                                         <p class="icon icon-product" style="background-image: url(Uploads/images/2021/06/03/1622719533_img.svg);"></p>
-                                        <p>15 Gift Card</p>
+                                        <p>$15 Amazon Gift Card</p>
                                         <input type="radio" name="opHappy" value="15 Gift Card">
                                     </label>
                                 </div>
@@ -709,16 +716,14 @@
                                         <span> </span>
                                     </p> --}}
                                     <p class="reviewCardStyle"
-                                        style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:0px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
-                                        Please kindly support our growing business by&nbsp;<span
-                                            style="box-sizing:border-box;font-weight:bolder;">leaving us 5
-                                            stars</span>&nbsp;to claim your reward!
+                                        style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:10px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
+                                        To claim your reward, please help us grow by leaving a &nbsp;<span
+                                            style="box-sizing:border-box;font-weight:bolder;">5
+                                            star review</span>&nbsp;on Amazon!
                                     </p>
                                     <p class="reviewCardStyle"
                                         style="box-sizing:border-box;font-family:Rubik, sans-serif;margin-top:0px;margin-bottom:0px;font-size:16px;width:700px;color:rgba(0, 0, 0, 0.65);white-space:normal;background-color:#FFFFFF;">
-                                        <span style="box-sizing:border-box;font-weight:bolder;">MAKE SURE TO SAVE YOUR
-                                            REVIEW SCREENSHOT AFTER LEAVING THE REVIEW, PLEASE RETURN HERE TO UPLOAD
-                                            IT</span>
+                                        <span style="box-sizing:border-box;font-weight:bolder">IMPORTANT: </span><span>After leaving your review, please make sure to screenshot it and return here to upload it.</span>
                                     </p>
                                     <p>
                                         <br>
@@ -734,7 +739,7 @@
 
                                             <img src="image/dp.png" alt="" style="width:45px;">
 
-                                            <input type="file" name="pic" size="30" id="file"
+                                            <input type="file" name="pic" size="70" id="file"
                                                 required>
 
                                         </div>
@@ -744,11 +749,10 @@
                                         </div>
 
                                     </div>
-
+                                    
                                     <div class="form-group row">
 
-                                        <label for="inputEmail" class="col-sm-2 col-form-label  text-right">order
-                                            ID</label>
+                                        <label for="inputEmail" class="col-sm-2 col-form-label  text-right">Amazon Order ID</label>
 
                                         <div class="col-sm-10">
 
@@ -764,19 +768,20 @@
                                         <label for="inputEmail"
                                             class="col-sm-2 col-form-label  text-right">Email</label>
 
-                                        <div class="col-sm-10">
-
-                                            <input type="email" class="form-control" name="email" id="email"
-                                                required>
-
-
-                                        </div>
+                                            <div class="col-sm-10">
+                                                <input type="email" class="form-control" name="email" id="email" required>
+                                            
+                                                <span style="font-size: 13px; font-weight: bold; color: #41474d; margin-left: 30px; margin-top: 1px; display: block;">
+                                                    We respect your privacy. Your information will not be shared.
+                                                </span>
+                                            </div>
+                                            
 
                                     </div>
 
                                     <div class="form-group row">
 
-                                        <label for="inputName" class="col-sm-2 col-form-label  text-right">amazon
+                                        <label for="inputName" class="col-sm-2 col-form-label  text-right">Amazon
                                             Name</label>
 
                                         <div class="col-sm-10">
@@ -989,7 +994,7 @@
             });
             $("input[type=file]").each(function() {
                 if ($(this).val() == "") {
-                    $(this).parents(".uploader").find("#filename").val("Upload Review Screenshot");
+                    $(this).parents(".uploader").find("#filename").val("Upload Your Review Screenshot");
                 }
             });
         });

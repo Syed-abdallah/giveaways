@@ -167,6 +167,7 @@ button {
 
 .card {
   cursor: pointer;
+  height:380px;
 }
 
 .active.card,
@@ -187,7 +188,7 @@ button {
 .icon-happy {
   background-image: url(../image/happy.svg);
   width: 214px;
-  height: 214px;
+  height: 185px;
 }
 
 .active .icon-happy {
