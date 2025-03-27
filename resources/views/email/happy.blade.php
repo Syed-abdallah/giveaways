@@ -55,10 +55,8 @@
         <p>We are so grateful for your support and look forward to serving you again in the future. If you have any questions or need further assistance, please don’t hesitate to reach out.</p>
         <p class="thank-you">Thank you again, and we hope to continue exceeding your expectations! 😊</p>
         <p>Best regards,</p>
-        <p><strong>[Name]</strong></p>
-        <p>[Position]</p>
-        <p><strong>[Company Name]</strong></p>
-        <p>[Contact Information]</p>
+        <p><strong>The Pet Lovers Giveaway Team After best regards.</strong></p>
+       
     </div>
 </body>
 </html>
