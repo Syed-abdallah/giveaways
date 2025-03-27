@@ -960,7 +960,7 @@
                     
                                     if (!selectedOption) {
                                         event.preventDefault();
-                                        alert("Please select an option before proceeding!");
+                                        alert("Please select an option before continuing!");
                                         console.error("⛔ Error: No option selected.");
                                     } else {
                                         console.log("✅ Selected Option:", selectedOption.value);

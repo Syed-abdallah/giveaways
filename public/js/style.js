@@ -30,7 +30,7 @@ $(document).ready(function () {
       }
     });
     if (!unchoose) {
-      alert("Please choose");
+      alert("Choose one of the following to proceed further");
       return false;
     }
     if($('#put').hasClass('active')){
