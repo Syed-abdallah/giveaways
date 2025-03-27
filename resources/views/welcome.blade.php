@@ -62,7 +62,7 @@
                                 </label>
                             </div>
                             <div class="col-md-6 col-sm-6 col-6">
-                                <label class="text-center happy radio card ">
+                                <label class="text-center happy radio card " style="height: 413px;">
                                     <p class="icon icon-happy"></p>
                                     <p>Yes, I’m happy!</p>
                                     <input type="radio" id="happy" name="optionsRadios" value="happy" style="margin-top:48px">
