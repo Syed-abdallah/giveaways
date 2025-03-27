@@ -590,7 +590,7 @@ input[type=text]::-webkit-focus-inner {
   width: fit-content;
   height: 45px;
   border: none;
-  padding: 0px 15px;
+  padding: 0px 35px;
   border-radius: 5px;
   background-color: rgb(49, 49, 83);
   gap: 10px;
@@ -616,7 +616,7 @@ input[type=text]::-webkit-focus-inner {
 }
 
 .filePage {
-  width: 50%;
+  width: 53%;
   height: auto;
   position: absolute;
   z-index: 2;
@@ -642,12 +642,14 @@ input[type=text]::-webkit-focus-inner {
 }
 
 .Documents-btn:hover .filePage {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
 }
 
 .Documents-btn:hover {
   background-color: rgb(58, 58, 94);
+ 
 }
+
 
 .Documents-btn:active {
   transform: scale(0.95);
