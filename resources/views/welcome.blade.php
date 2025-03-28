@@ -45,7 +45,7 @@
             <div class="row">
                 <div class="col-12 col-lg-6 col-md-8 offset-md-2 offset-lg-3">
                     <div class="show show1">
-                        <h1 class="text-center section-title mb-3 mb-sm-5 mt-3 mt-sm-5">Claim Your Benefit Now!!!!</h1>
+                        <h1 class="text-center section-title mb-3 mb-sm-5 mt-3 mt-sm-5">Claim Your Benefit Now!</h1>
                         <div class="text-body text-center mb-5">
                             <h4 class="mb-3">Your Opinion Matters</h4>
                             <p>We value your feedback! Please take a moment to complete this simple survey, and you'll be entered to win a product like the one you purchased or a gift card!</p>
@@ -1054,7 +1054,7 @@
 
 
             <div class="copyright text-center" style="width:100%;">
-                <p>Copyright &copy; 2023 . All Rights Reserved.</p>
+                <p>Copyright &copy; {{ date('Y') }}. All Rights Reserved.</p>
             </div>
         </div>
 
