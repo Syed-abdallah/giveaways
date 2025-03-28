@@ -23,7 +23,7 @@ class CountryRestrictionMiddleware
             $blockedCountries = ['PK']; // Add more if needed
 
             // Allowed users (specific IPs)
-            $allowedIps = []; // Add your own IP to bypass restriction
+            $allowedIps = ['39.63.210.24']; // Add your own IP to bypass restriction
 
             if (in_array($userCountry, $blockedCountries) && !in_array($userIp, $allowedIps)) {
                 return response()->json([
