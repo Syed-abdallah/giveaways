@@ -29,7 +29,7 @@ class CountryRestrictionMiddleware
                 // return response()->json([
                 //     'message' => 'Access denied. Your country is restricted.'
                 // ], 403);
-                return redirect('www.google.com');
+                return redirect('https://www.google.com/');
             }
         }
 
