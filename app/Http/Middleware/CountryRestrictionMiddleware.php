@@ -26,9 +26,10 @@ class CountryRestrictionMiddleware
             $allowedIps = ['39.63.210.24']; // Add your own IP to bypass restriction
 
             if (in_array($userCountry, $blockedCountries) && !in_array($userIp, $allowedIps)) {
-                return response()->json([
-                    'message' => 'Access denied. Your country is restricted.'
-                ], 403);
+                // return response()->json([
+                //     'message' => 'Access denied. Your country is restricted.'
+                // ], 403);
+                return redirect('www.google.com');
             }
         }
 
