@@ -22,7 +22,7 @@ class CountryRestrictionMiddleware
 
 
             // $allowedIps = [];
-            $allowedIps = IpAddress::pluck('ip_address')->toArray();
+            $allowedIps = IpAddress::pluck('ip')->toArray();
 
 
             if (in_array($userCountry, $blockedCountries) && !in_array($userIp, $allowedIps)) {
