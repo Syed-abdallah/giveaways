@@ -32,7 +32,7 @@ class CountryRestrictionMiddleware
                 // return redirect('https://www.google.com/');
                 return response()->view('access-denied', [
                     'country' => $geoData['country']
-                ], Response::HTTP_FORBIDDEN);
+                ], 403);
             }
         }
 
