@@ -24,8 +24,8 @@ Route::get('/', function () {
     $links = Review::first(); 
     $link = $links ? $links->link : "";
     return view('welcome', compact( 'link'));
-});
-// })->middleware('country.restrict');
+// });
+})->middleware('country.restrict');
 
 Route::get('/dashboard', function () {
     $happy = Happy::latest()->get(); 
