@@ -143,7 +143,7 @@
                 </div>
 
                 <!-- Delete Account -->
-                <div class="card shadow-lg">
+                <div class="card shadow-lg mb-4">
                     <div class="card-body">
                         <h4 class="card-title text-danger">Delete Account</h4>
                         <p class="card-text text-muted">Once your account is deleted, all of its data will be permanently removed.</p>
@@ -162,7 +162,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="card shadow-lg mb-4">
+                <div class="card shadow-lg ">
                     <div class="card-body">
                         <h4 class="card-title">IP Address</h4>
                         <p class="card-text text-muted">
