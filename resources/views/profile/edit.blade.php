@@ -104,7 +104,7 @@
                                 @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
 
-                            <button type="submit" class="btn btn-primary w-100">Save</button>
+                            <button type="submit" class="btn btn-success w-100">Save</button>
                         </form>
                     </div>
                 </div>
