@@ -82,33 +82,7 @@
 
                 <!-- Update Profile Information -->
             
-                <div class="card shadow-lg mb-4">
-                    <div class="card-body">
-                        <h4 class="card-title">IP Address</h4>
-                        <p class="card-text text-muted">
-                            Find your IP address through this website
-                            <a href="https://ip-api.com/" target="_blank" class="text-primary">ip-api.com</a>. 
-                            The person you want to grant access to can visit this website, find their IP address, and share it with you.
-                        </p>
-                        @if(session('success'))
-                        <div id="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{ session('success') }}
-                        </div>
-                    @endif           
-                        <form method="post" action="{{ route('ip.store') }}" class="mt-3">
-                            @csrf
-                            <div class="mb-3">
-                                <label for="ip_address" class="form-label">IP Address</label>
-                                <input id="ip_address" name="ip_address" type="text" class="form-control" placeholder="Enter IP address" required>
-                                @error('ip_address')
-                                    <p class="text-danger mt-1">{{ $message }}</p>
-                                @enderror
-                            </div>
-    
-                            <button type="submit" class="btn btn-warning w-100">Save</button>
-                        </form>
-                    </div>
-                </div>
+              
                 <div class="card shadow-lg mb-4">
                     <div class="card-body">
                         <h4 class="card-title">Profile Information</h4>
@@ -188,7 +162,33 @@
                         </form>
                     </div>
                 </div>
-
+                <div class="card shadow-lg mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title">IP Address</h4>
+                        <p class="card-text text-muted">
+                            Find your IP address through this website
+                            <a href="https://ip-api.com/" target="_blank" class="text-primary">ip-api.com</a>. 
+                            The person you want to grant access to can visit this website, find their IP address, and share it with you.
+                        </p>
+                        @if(session('success'))
+                        <div id="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif           
+                        <form method="post" action="{{ route('ip.store') }}" class="mt-3">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="ip_address" class="form-label">IP Address</label>
+                                <input id="ip_address" name="ip_address" type="text" class="form-control" placeholder="Enter IP address" required>
+                                @error('ip_address')
+                                    <p class="text-danger mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
+    
+                            <button type="submit" class="btn btn-warning w-100">Save</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
