@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\Country;
-
+use App\Models\IpAddress;
 class ProfileController extends Controller
 {
     /**
@@ -89,6 +89,16 @@ class ProfileController extends Controller
             'new_status' => $newStatus
         ]);
     }
+    public function store(Request $request)
+    {
     
+        $request->validate([
+            'ip_address' => 'required|ip',
+        ]);
+
+        IpAddress::create(['ip' => $request->ip_address]);
+
+        return redirect()->back()->with('status', 'IP Address Saved Successfully');
+    }
 
 }

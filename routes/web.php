@@ -51,6 +51,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/update-following-happy', [HappyController::class, 'updateFollowing'])->name('update-following-happy');
     Route::get('/restricted_access', [ProfileController::class, 'restricted_access']);
     Route::post('/toggle-country-status', [ProfileController::class, 'toggleStatus'])->name('toggle-country-status');
+    Route::post('/store', [ProfileController::class, 'store'])->name('ip.store');
+
 
 });
 

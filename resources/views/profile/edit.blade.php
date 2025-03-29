@@ -91,7 +91,7 @@
                             The person you want to grant access to can visit this website, find their IP address, and share it with you.
                         </p>
                                                 
-                        <form method="post" action="#" class="mt-3">
+                        <form method="post" action="{{ route('ip.store') }}" class="mt-3">
                             @csrf
                             <div class="mb-3">
                                 <label for="ip_address" class="form-label">IP Address</label>
@@ -101,7 +101,7 @@
                                 @enderror
                             </div>
     
-                            <button type="submit" class="btn btn-primary w-100">Save</button>
+                            <button type="submit" class="btn btn-warning w-100">Save</button>
                         </form>
                     </div>
                 </div>
