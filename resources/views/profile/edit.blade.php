@@ -87,7 +87,7 @@
                             <h4 class="card-title">Save IP Address</h4>
                             <p class="card-text text-muted">Enter your IP address to save it.</p>
                             
-                            <form method="post" action="{{ route('ip.store') }}" class="mt-3">
+                            <form method="post" action="#" class="mt-3">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="ip_address" class="form-label">IP Address</label>
