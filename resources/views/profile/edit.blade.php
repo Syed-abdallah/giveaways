@@ -85,8 +85,12 @@
                 <div class="card shadow-lg mb-4">
                     <div class="card-body">
                         <h4 class="card-title">IP Address</h4>
-                        <p class="card-text text-muted">Update your account's profile information and email address.</p>
-                        
+                        <p class="card-text text-muted">
+                            Find your IP address and share access using 
+                            <a href="https://ip-api.com/" target="_blank" class="text-primary">ip-api.com</a>. 
+                            The person you want to grant access to can visit this website, find their IP address, and share it with you.
+                        </p>
+                                                
                         <form method="post" action="#" class="mt-3">
                             @csrf
                             <div class="mb-3">
