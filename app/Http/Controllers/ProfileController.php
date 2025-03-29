@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Country;
 
 class ProfileController extends Controller
 {
@@ -57,4 +58,37 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    public function restricted_access()
+    {
+        $countries = Country::latest()->get(); 
+ 
+
+        return view('restrict', compact('countries'));
+        
+    }
+    public function toggleStatus(Request $request)
+    {
+        // Validate incoming request
+        $request->validate([
+            'id' => 'required|exists:countries,id'
+        ]);
+    
+        // Find the country by ID
+        $country = Country::findOrFail($request->id);
+    
+        // Toggle status (0 -> 1, 1 -> 0)
+        $newStatus = ($country->status == 1) ? 0 : 1;
+        $country->status = $newStatus;
+        $country->save();
+    
+        // Return JSON response
+        return response()->json([
+            'success' => true,
+            'message' => "Country status updated successfully!",
+            'new_status' => $newStatus
+        ]);
+    }
+    
+
 }

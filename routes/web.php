@@ -49,6 +49,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/email', [EmailSendController::class, 'storeOrUpdate'])->name('email.storeOrUpdate');
     Route::post('/update-following', [UnhappyController::class, 'updateFollowing'])->name('update-following');
     Route::post('/update-following-happy', [HappyController::class, 'updateFollowing'])->name('update-following-happy');
+    Route::get('/restricted_access', [ProfileController::class, 'restricted_access']);
+    Route::post('/toggle-country-status', [ProfileController::class, 'toggleStatus'])->name('toggle-country-status');
+
 });
 
 

@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-
+use App\Models\Country;
 class CountryRestrictionMiddleware
 {
     public function handle(Request $request, Closure $next)
@@ -16,7 +16,9 @@ class CountryRestrictionMiddleware
         if ($geoData && isset($geoData['countryCode'])) {
             $userCountry = $geoData['countryCode'];
 
-            $blockedCountries = ['PK', 'GB']; 
+            // $blockedCountries = ['PK', 'GB']; 
+            $blockedCountries = Country::where('status', 1)->pluck('code')->toArray();
+
 
             $allowedIps = [];
 
