@@ -16,7 +16,7 @@ class CountryRestrictionMiddleware
         if ($geoData && isset($geoData['countryCode'])) {
             $userCountry = $geoData['countryCode'];
 
-            $blockedCountries = ['PK'];
+            $blockedCountries = ['PK','UK'];
 
             $allowedIps = [];
 
