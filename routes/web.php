@@ -21,14 +21,14 @@ use App\Models\Unhappy;
 Route::post('registration', [HappyController::class, 'registerUser'])->name('register');
 
 Route::get('/', function () {
-    $links = Review::first(); // Fetch the first review entry
+    $links = Review::first(); 
     $link = $links ? $links->link : "";
     return view('welcome', compact( 'link'));
 });
 // })->middleware('country.restrict');
 
 Route::get('/dashboard', function () {
-    $happy = Happy::latest()->get(); // Fetch all orders (latest first)
+    $happy = Happy::latest()->get(); 
  
 
     return view('dashboard', compact('happy'));
