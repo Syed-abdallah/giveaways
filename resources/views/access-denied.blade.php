@@ -42,7 +42,7 @@
         <h1>🚫 Access Denied</h1>
         <p>Sorry, but access from <strong>{{ $country }}</strong> is restricted.</p>
         <p>If you believe this is a mistake, please contact support.</p>
-        <a href="/" class="btn-home">Go to Homepage</a>
+        <a href="https://www.google.com/" class="btn-home">Go to Homepage</a>
     </div>
 
 </body>
