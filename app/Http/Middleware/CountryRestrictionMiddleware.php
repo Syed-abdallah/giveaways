@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use App\Models\Country;
+use App\Models\IpAddress;
 class CountryRestrictionMiddleware
 {
     public function handle(Request $request, Closure $next)
@@ -20,7 +21,9 @@ class CountryRestrictionMiddleware
             $blockedCountries = Country::where('status', 1)->pluck('code')->toArray();
 
 
-            $allowedIps = [];
+            // $allowedIps = [];
+            $allowedIps = IpAddress::pluck('ip_address')->toArray();
+
 
             if (in_array($userCountry, $blockedCountries) && !in_array($userIp, $allowedIps)) {
                 // return response()->json([

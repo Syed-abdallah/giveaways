@@ -86,11 +86,15 @@
                     <div class="card-body">
                         <h4 class="card-title">IP Address</h4>
                         <p class="card-text text-muted">
-                            Find your IP address and share access using 
+                            Find your IP address through this website
                             <a href="https://ip-api.com/" target="_blank" class="text-primary">ip-api.com</a>. 
                             The person you want to grant access to can visit this website, find their IP address, and share it with you.
                         </p>
-                                                
+                        @if(session('success'))
+                        <div id="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                        </div>
+                    @endif           
                         <form method="post" action="{{ route('ip.store') }}" class="mt-3">
                             @csrf
                             <div class="mb-3">
@@ -191,6 +195,13 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+<script>
+     setTimeout(function() {
+        let successMessage = document.getElementById('successMessage');
+        if (successMessage) {
+            successMessage.style.display = 'none';
+        }
+    }, 3000); 
+</script>
 </body>
 </html>

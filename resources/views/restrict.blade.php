@@ -52,7 +52,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ optional(Auth()->user())->name ?: "settings" }}
+                            {{ optional(Auth()->user())->name ?: 'settings' }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                             <li>
@@ -100,16 +100,57 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <button class="btn btn-sm toggle-status btn-{{ $country->status == 1 ? 'danger' : 'success' }}"
+                                    <button
+                                        class="btn btn-sm toggle-status btn-{{ $country->status == 1 ? 'danger' : 'success' }}"
                                         data-id="{{ $country->id }}">
                                         {{ $country->status == 1 ? 'Deactivate' : 'Activate' }}
                                     </button>
                                 </td>
-                                
+
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid py-5">
+        <div class="card p-4 shadow-lg">
+            <h2 class="text-center mb-4">Website Access User's</h2>
+            @if(session('success'))
+            <div id="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
+            <div class="table-responsive">
+                <table id="ipsTable" class="table table-striped w-100">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>IP Address</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($ips as $key => $ip)
+                            <tr id="row-{{ $ip->id }}">
+                                <td>{{ $key + 1 }}</td>
+                                <td>{{ $ip->ip }}</td>
+                                <td>
+                                    <form action="{{ route('ip.delete', $ip->id) }}" method="POST"
+                                        onsubmit="return confirm('Are you sure you want to delete this IP?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
+                                </td>
+
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
             </div>
 
         </div>
@@ -125,71 +166,94 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
 
-  
+
 
 
 
     <script>
-      
-      $(document).ready(function() {
-    // Initialize DataTable
-    var table = $('#countrysTable').DataTable({
-        "paging": true,
-        "searching": true,
-        "ordering": true,
-        "info": true,
-        "responsive": true,
-        "autoWidth": false,
-        "lengthChange": true,
-        "pageLength": 10
-    });
+        $(document).ready(function() {
+            // Initialize DataTable
+            var table = $('#countrysTable').DataTable({
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "responsive": true,
+                "autoWidth": false,
+                "lengthChange": true,
+                "pageLength": 10
+            });
+            var table = $('#ipsTable').DataTable({
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "responsive": true,
+                "autoWidth": false,
+                "lengthChange": true,
+                "pageLength": 10
+            });
 
-    // Use event delegation for dynamically loaded elements
-    $(document).on("click", ".toggle-status", function() {
-        var countryId = $(this).data("id");
-        var button = $(this);
+            // Use event delegation for dynamically loaded elements
+            $(document).on("click", ".toggle-status", function() {
+                var countryId = $(this).data("id");
+                var button = $(this);
 
-        $.ajax({
-            url: "{{ route('toggle-country-status') }}",
-            type: "POST",
-            data: {
-                id: countryId,
-                _token: $('meta[name="csrf-token"]').attr("content")
-            },
-            success: function(response) {
-                if (response.success) {
-                    // Update the status badge
-                    var statusElement = $("#status-" + countryId + " span");
+                $.ajax({
+                    url: "{{ route('toggle-country-status') }}",
+                    type: "POST",
+                    data: {
+                        id: countryId,
+                        _token: $('meta[name="csrf-token"]').attr("content")
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            // Update the status badge
+                            var statusElement = $("#status-" + countryId + " span");
 
-                    if (response.new_status === 1) {
-                        statusElement.removeClass("bg-danger").addClass("bg-warning").text("Active");
-                        button.removeClass("btn-success").addClass("btn-danger").text("Deactivate");
-                    } else {
-                        statusElement.removeClass("bg-warning").addClass("bg-danger").text("In Active");
-                        button.removeClass("btn-danger").addClass("btn-success").text("Activate");
+                            if (response.new_status === 1) {
+                                statusElement.removeClass("bg-danger").addClass("bg-warning")
+                                    .text("Active");
+                                button.removeClass("btn-success").addClass("btn-danger").text(
+                                    "Deactivate");
+                            } else {
+                                statusElement.removeClass("bg-warning").addClass("bg-danger")
+                                    .text("In Active");
+                                button.removeClass("btn-danger").addClass("btn-success").text(
+                                    "Activate");
+                            }
+
+                            // Show success toast
+                            var toastElement = new bootstrap.Toast(document.getElementById(
+                                "successToast"));
+                            $(".toast-body").text(response.message);
+                            toastElement.show();
+                        } else {
+                            alert("Update failed. Try again.");
+                        }
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText);
+                        alert("Error updating. Please check the console.");
                     }
+                });
+            });
 
-                    // Show success toast
-                    var toastElement = new bootstrap.Toast(document.getElementById("successToast"));
-                    $(".toast-body").text(response.message);
-                    toastElement.show();
-                } else {
-                    alert("Update failed. Try again.");
-                }
-            },
-            error: function(xhr) {
-                console.log(xhr.responseText);
-                alert("Error updating. Please check the console.");
-            }
         });
-    });
-
-});
 
 
 
+
+
+
+        setTimeout(function() {
+        let successMessage = document.getElementById('successMessage');
+        if (successMessage) {
+            successMessage.style.display = 'none';
+        }
+    }, 3000); 
     </script>
-    
+
 
 </body>
 

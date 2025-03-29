@@ -52,6 +52,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/restricted_access', [ProfileController::class, 'restricted_access']);
     Route::post('/toggle-country-status', [ProfileController::class, 'toggleStatus'])->name('toggle-country-status');
     Route::post('/store', [ProfileController::class, 'store'])->name('ip.store');
+    Route::get('/ips', [ProfileController::class, 'ipaccess'])->name('ips.index');
+    Route::delete('/ip/delete/{id}', [ProfileController::class, 'destroyip'])->name('ip.delete');
 
 
 });

@@ -62,9 +62,10 @@ class ProfileController extends Controller
     public function restricted_access()
     {
         $countries = Country::latest()->get(); 
- 
+        $ips = IpAddress::all(); // Fetch all IP records
+      
 
-        return view('restrict', compact('countries'));
+        return view('restrict', compact('countries','ips'));
         
     }
     public function toggleStatus(Request $request)
@@ -93,12 +94,26 @@ class ProfileController extends Controller
     {
     
         $request->validate([
-            'ip_address' => 'required|ip',
+            'ip_address' => 'required|ip|unique:ip_addresses,ip',
         ]);
+        
 
+      
         IpAddress::create(['ip' => $request->ip_address]);
 
-        return redirect()->back()->with('status', 'IP Address Saved Successfully');
+        return redirect()->back()->with('success', 'IP Address Saved Successfully');
     }
 
+
+    public function destroyip(Request $request)
+{
+    $ip = IpAddress::find($request->id);
+    if ($ip) {
+        $ip->delete();
+        return redirect()->back()->with('success' ,'IP deleted successfully.');
+    }
+    return response()->json(['success' => false, 'message' => 'IP not found.']);
+}
+
+    
 }
