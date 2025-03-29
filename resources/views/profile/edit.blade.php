@@ -166,7 +166,7 @@
                     <div class="card-body">
                         <h4 class="card-title">IP Address</h4>
                         <p class="card-text text-muted">
-                            Find your IP address through this website
+                            Just scroll and find your IP address in input field through this website 
                             <a href="https://ip-api.com/" target="_blank" class="text-primary">ip-api.com</a>. 
                             The person you want to grant access to can visit this website, find their IP address, and share it with you.
                         </p>
