@@ -81,25 +81,24 @@
                 <h2 class="text-center mb-4">Profile</h2>
 
                 <!-- Update Profile Information -->
-                <div class="col-md-6">
-                    <div class="card shadow-lg mb-4">
-                        <div class="card-body">
-                            <h4 class="card-title">Save IP Address</h4>
-                            <p class="card-text text-muted">Enter your IP address to save it.</p>
-                            
-                            <form method="post" action="#" class="mt-3">
-                                @csrf
-                                <div class="mb-3">
-                                    <label for="ip_address" class="form-label">IP Address</label>
-                                    <input id="ip_address" name="ip_address" type="text" class="form-control" placeholder="Enter IP address" required>
-                                    @error('ip_address')
-                                        <p class="text-danger mt-1">{{ $message }}</p>
-                                    @enderror
-                                </div>
-        
-                                <button type="submit" class="btn btn-primary w-100">Save</button>
-                            </form>
-                        </div>
+            
+                <div class="card shadow-lg mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title">IP Address</h4>
+                        <p class="card-text text-muted">Update your account's profile information and email address.</p>
+                        
+                        <form method="post" action="#" class="mt-3">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="ip_address" class="form-label">IP Address</label>
+                                <input id="ip_address" name="ip_address" type="text" class="form-control" placeholder="Enter IP address" required>
+                                @error('ip_address')
+                                    <p class="text-danger mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
+    
+                            <button type="submit" class="btn btn-primary w-100">Save</button>
+                        </form>
                     </div>
                 </div>
                 <div class="card shadow-lg mb-4">
