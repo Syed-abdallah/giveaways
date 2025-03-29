@@ -86,6 +86,34 @@
                         <h4 class="card-title">Profile Information</h4>
                         <p class="card-text text-muted">Update your account's profile information and email address.</p>
                         
+                        <header>
+                            <h2 class="text-lg font-medium text-gray-900">Save IP Address</h2>
+                        </header>
+                    
+                        <form method="post" action="#" class="mt-6">
+                            @csrf
+                    
+                            <div>
+                                <label for="ip_address" class="block font-medium text-sm text-gray-700">IP Address</label>
+                                <input id="ip_address" name="ip_address" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" placeholder="Enter IP address" required>
+                                @error('ip_address')
+                                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
+                            </div>
+                    
+                            <div class="mt-4">
+                                <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                                    Save
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card shadow-lg mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Profile Information</h4>
+                        <p class="card-text text-muted">Update your account's profile information and email address.</p>
+                        
                         <form method="post" action="{{ route('profile.update') }}">
                             @csrf
                             @method('patch')
