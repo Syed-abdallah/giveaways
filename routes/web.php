@@ -45,11 +45,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/settings', [EmailSendController::class, 'index']);
+    Route::post('/email', [EmailSendController::class, 'storeOrUpdate'])->name('email.storeOrUpdate');
+    Route::post('/update-following', [UnhappyController::class, 'updateFollowing'])->name('update-following');
+    Route::post('/update-following-happy', [HappyController::class, 'updateFollowing'])->name('update-following-happy');
 });
 
 
-Route::get('/settings', [EmailSendController::class, 'index']);
-Route::post('/email', [EmailSendController::class, 'storeOrUpdate'])->name('email.storeOrUpdate');
 Route::post('/link', [EmailSendController::class, 'storeOrUpdateLink'])->name('review.storeOrUpdateLink');
 Route::post('/save-happy-form', [HappyController::class, 'store'])->name('save.form');
 Route::post('/save-unhappy-form', [UnhappyController::class, 'store'])->name('save.unhappyform');
@@ -57,7 +59,5 @@ Route::get('/success', function () {
     return view('success');
 });
 
-Route::post('/update-following', [UnhappyController::class, 'updateFollowing'])->name('update-following');
-Route::post('/update-following-happy', [HappyController::class, 'updateFollowing'])->name('update-following-happy');
 
 require __DIR__.'/auth.php';

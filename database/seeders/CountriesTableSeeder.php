@@ -1,0 +1,96 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class CountriesTableSeeder extends Seeder
+{
+    public function run()
+    {
+        $countries = [
+            ["code" => "AF", "name" => "Afghanistan", "status" => 0],
+            ["code" => "AX", "name" => "Aland Islands", "status" => 0],
+            ["code" => "AL", "name" => "Albania", "status" => 0],
+            ["code" => "DZ", "name" => "Algeria", "status" => 0],
+            ["code" => "AS", "name" => "American Samoa", "status" => 0],
+            ["code" => "AD", "name" => "Andorra", "status" => 0],
+            ["code" => "AO", "name" => "Angola", "status" => 0],
+            ["code" => "AI", "name" => "Anguilla", "status" => 0],
+            ["code" => "AQ", "name" => "Antarctica", "status" => 0],
+            ["code" => "AG", "name" => "Antigua and Barbuda", "status" => 0],
+            ["code" => "AR", "name" => "Argentina", "status" => 0],
+            ["code" => "AM", "name" => "Armenia", "status" => 0],
+            ["code" => "AW", "name" => "Aruba", "status" => 0],
+            ["code" => "AU", "name" => "Australia", "status" => 0],
+            ["code" => "AT", "name" => "Austria", "status" => 0],
+            ["code" => "AZ", "name" => "Azerbaijan", "status" => 0],
+            ["code" => "BS", "name" => "Bahamas", "status" => 0],
+            ["code" => "BH", "name" => "Bahrain", "status" => 0],
+            ["code" => "BD", "name" => "Bangladesh", "status" => 0],
+            ["code" => "BB", "name" => "Barbados", "status" => 0],
+            ["code" => "BY", "name" => "Belarus", "status" => 0],
+            ["code" => "BE", "name" => "Belgium", "status" => 0],
+            ["code" => "BZ", "name" => "Belize", "status" => 0],
+            ["code" => "BJ", "name" => "Benin", "status" => 0],
+            ["code" => "BM", "name" => "Bermuda", "status" => 0],
+            ["code" => "BT", "name" => "Bhutan", "status" => 0],
+            ["code" => "BO", "name" => "Bolivia", "status" => 0],
+            ["code" => "BQ", "name" => "Bonaire, Sint Eustatius and Saba", "status" => 0],
+            ["code" => "BA", "name" => "Bosnia and Herzegovina", "status" => 0],
+            ["code" => "BW", "name" => "Botswana", "status" => 0],
+            ["code" => "BV", "name" => "Bouvet Island", "status" => 0],
+            ["code" => "BR", "name" => "Brazil", "status" => 0],
+            ["code" => "IO", "name" => "British Indian Ocean Territory", "status" => 0],
+            ["code" => "BN", "name" => "Brunei Darussalam", "status" => 0],
+            ["code" => "BG", "name" => "Bulgaria", "status" => 0],
+            ["code" => "BF", "name" => "Burkina Faso", "status" => 0],
+            ["code" => "BI", "name" => "Burundi", "status" => 0],
+            ["code" => "KH", "name" => "Cambodia", "status" => 0],
+            ["code" => "CM", "name" => "Cameroon", "status" => 0],
+            ["code" => "CA", "name" => "Canada", "status" => 0],
+            ["code" => "CV", "name" => "Cape Verde", "status" => 0],
+            ["code" => "KY", "name" => "Cayman Islands", "status" => 0],
+            ["code" => "CF", "name" => "Central African Republic", "status" => 0],
+            ["code" => "TD", "name" => "Chad", "status" => 0],
+            ["code" => "CL", "name" => "Chile", "status" => 0],
+            ["code" => "CN", "name" => "China", "status" => 0],
+            ["code" => "CX", "name" => "Christmas Island", "status" => 0],
+            ["code" => "CC", "name" => "Cocos (Keeling) Islands", "status" => 0],
+            ["code" => "CO", "name" => "Colombia", "status" => 0],
+            ["code" => "KM", "name" => "Comoros", "status" => 0],
+            ["code" => "CG", "name" => "Congo", "status" => 0],
+            ["code" => "CD", "name" => "Congo, Democratic Republic", "status" => 0],
+            ["code" => "CR", "name" => "Costa Rica", "status" => 0],
+            ["code" => "HR", "name" => "Croatia", "status" => 0],
+            ["code" => "CU", "name" => "Cuba", "status" => 0],
+            ["code" => "CY", "name" => "Cyprus", "status" => 0],
+            ["code" => "CZ", "name" => "Czech Republic", "status" => 0],
+            ["code" => "DK", "name" => "Denmark", "status" => 0],
+            ["code" => "DJ", "name" => "Djibouti", "status" => 0],
+            ["code" => "DM", "name" => "Dominica", "status" => 0],
+            ["code" => "DO", "name" => "Dominican Republic", "status" => 0],
+            ["code" => "EC", "name" => "Ecuador", "status" => 0],
+            ["code" => "EG", "name" => "Egypt", "status" => 0],
+            ["code" => "SV", "name" => "El Salvador", "status" => 0],
+            ["code" => "GQ", "name" => "Equatorial Guinea", "status" => 0],
+            ["code" => "ER", "name" => "Eritrea", "status" => 0],
+            ["code" => "EE", "name" => "Estonia", "status" => 0],
+            ["code" => "ET", "name" => "Ethiopia", "status" => 0],
+            ["code" => "FI", "name" => "Finland", "status" => 0],
+            ["code" => "FR", "name" => "France", "status" => 0],
+            ["code" => "PK", "name" => "Pakistan", "status" => 0],
+            ["code" => "GB", "name" => "United Kingdom", "status" => 0],
+            ["code" => "US", "name" => "United States", "status" => 0],
+            ["code" => "UY", "name" => "Uruguay", "status" => 0],
+            ["code" => "UZ", "name" => "Uzbekistan", "status" => 0],
+            ["code" => "VN", "name" => "Vietnam", "status" => 0],
+            ["code" => "YE", "name" => "Yemen", "status" => 0],
+            ["code" => "ZM", "name" => "Zambia", "status" => 0],
+            ["code" => "ZW", "name" => "Zimbabwe", "status" => 0]
+        ];
+        
+        DB::table('countries')->insert($countries);
+    }
+}
